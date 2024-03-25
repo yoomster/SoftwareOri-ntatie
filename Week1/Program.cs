@@ -22,12 +22,18 @@ namespace Week1
             Console.WriteLine(age + 2);
 
             //-------------------------------
+            Console.WriteLine(Add(10, 5));
+            Console.WriteLine(Add(79650, 450));
 
-            //int add = a + b;
-            //int substract = a - b;
-            //int multiply = a * b;
+            Console.WriteLine(Subtract(10, 5));
+            Console.WriteLine(Subtract(79650, 24400));
 
-            Add(10, 5);
+            Console.WriteLine(Multiply(10, 5));
+            Console.WriteLine(Multiply(120, 120));
+
+            Console.WriteLine(Divide(10, 3));
+            Console.WriteLine(Divide(79650, 11));
+
 
             Console.ReadLine();
         }
@@ -35,6 +41,20 @@ namespace Week1
         public static int Add(int a, int b)
         {
             return a + b;
+        }
+        public static int Subtract(int a, int b)
+        {
+            return a - b;
+        }
+
+
+        public static int Multiply(int a, int b)
+        {
+            return a * b;
+        }
+        public static double Divide(double a, double b)
+        {
+            return a / b;
         }
     }
 }
