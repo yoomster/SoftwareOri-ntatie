@@ -34,8 +34,9 @@
             this.DollarLabel = new System.Windows.Forms.Label();
             this.EuroButton = new System.Windows.Forms.Button();
             this.DollarButton = new System.Windows.Forms.Button();
-            this.DollarExchangeRate = new System.Windows.Forms.DomainUpDown();
             this.ExchangeRateLabel = new System.Windows.Forms.Label();
+            this.ExchangeRateNumericUpDown = new System.Windows.Forms.NumericUpDown();
+            ((System.ComponentModel.ISupportInitialize)(this.ExchangeRateNumericUpDown)).BeginInit();
             this.SuspendLayout();
             // 
             // EuroTextBox
@@ -84,6 +85,7 @@
             this.EuroButton.TabIndex = 4;
             this.EuroButton.Text = "<";
             this.EuroButton.UseVisualStyleBackColor = false;
+            this.EuroButton.Click += new System.EventHandler(this.EuroButton_Click);
             // 
             // DollarButton
             // 
@@ -95,15 +97,7 @@
             this.DollarButton.TabIndex = 5;
             this.DollarButton.Text = ">";
             this.DollarButton.UseVisualStyleBackColor = false;
-            // 
-            // DollarExchangeRate
-            // 
-            this.DollarExchangeRate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.DollarExchangeRate.Location = new System.Drawing.Point(364, 166);
-            this.DollarExchangeRate.Name = "DollarExchangeRate";
-            this.DollarExchangeRate.Size = new System.Drawing.Size(55, 26);
-            this.DollarExchangeRate.TabIndex = 6;
-            this.DollarExchangeRate.Text = "2,00";
+            this.DollarButton.Click += new System.EventHandler(this.DollarButton_Click);
             // 
             // ExchangeRateLabel
             // 
@@ -115,13 +109,31 @@
             this.ExchangeRateLabel.TabIndex = 7;
             this.ExchangeRateLabel.Text = "Koers: 1 euro = $";
             // 
+            // ExchangeRateNumericUpDown
+            // 
+            this.ExchangeRateNumericUpDown.DecimalPlaces = 2;
+            this.ExchangeRateNumericUpDown.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            131072});
+            this.ExchangeRateNumericUpDown.Location = new System.Drawing.Point(364, 168);
+            this.ExchangeRateNumericUpDown.Name = "ExchangeRateNumericUpDown";
+            this.ExchangeRateNumericUpDown.Size = new System.Drawing.Size(54, 20);
+            this.ExchangeRateNumericUpDown.TabIndex = 8;
+            this.ExchangeRateNumericUpDown.Value = new decimal(new int[] {
+            2,
+            0,
+            0,
+            0});
+            // 
             // EurToUsdConverter
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(673, 217);
+            this.Controls.Add(this.ExchangeRateNumericUpDown);
             this.Controls.Add(this.ExchangeRateLabel);
-            this.Controls.Add(this.DollarExchangeRate);
             this.Controls.Add(this.DollarButton);
             this.Controls.Add(this.EuroButton);
             this.Controls.Add(this.DollarLabel);
@@ -131,6 +143,7 @@
             this.Name = "EurToUsdConverter";
             this.Text = "Euro - US Dollar Converter";
             this.Load += new System.EventHandler(this.Form1_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.ExchangeRateNumericUpDown)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -139,13 +152,13 @@
         #endregion
 
         private System.Windows.Forms.TextBox EuroTextBox;
-        private System.Windows.Forms.TextBox DollarTextBox;
         private System.Windows.Forms.Label EuroLabel;
         private System.Windows.Forms.Label DollarLabel;
         private System.Windows.Forms.Button EuroButton;
         private System.Windows.Forms.Button DollarButton;
-        private System.Windows.Forms.DomainUpDown DollarExchangeRate;
         private System.Windows.Forms.Label ExchangeRateLabel;
+        private System.Windows.Forms.NumericUpDown ExchangeRateNumericUpDown;
+        public System.Windows.Forms.TextBox DollarTextBox;
     }
 }
 
