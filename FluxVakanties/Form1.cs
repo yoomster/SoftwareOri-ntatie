@@ -35,7 +35,7 @@ namespace FluxVakanties
             //bij ongeldige invoer, duidelijke foutmelding + niets berekenen
             if (tryConvert == false)
             {
-                MessageBox.Show("FOUT!");
+                MessageBox.Show("FOUTE INVOER! alleen cijfers toegestaan");
                 DollarTextBox.Text = "0";
             }
 
@@ -56,7 +56,7 @@ namespace FluxVakanties
             //bij ongeldige invoer, duidelijke foutmelding + niets berekenen
             if (tryConvert == false)
             {
-                MessageBox.Show("FOUT!");
+                MessageBox.Show("FOUTE INVOER! alleen cijfers toegestaan");
                 EuroTextBox.Text = "0";
             }
 
