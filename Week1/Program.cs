@@ -19,7 +19,7 @@ namespace Week1
             Console.Write( "What is your age: ");
             string ageNr = Console.ReadLine();
             int.TryParse(ageNr, out int age);
-            Console.WriteLine(age + 2);
+            Console.WriteLine($"your age in 15 years will be: {age + 15}" );
 
             //-------------------------------
             Console.WriteLine(Add(10, 5));
@@ -31,6 +31,8 @@ namespace Week1
             Console.WriteLine(Multiply(10, 5));
             Console.WriteLine(Multiply(120, 120));
 
+            double multiplied = Divide(10, 5);
+            Console.WriteLine(multiplied);
             Console.WriteLine(Divide(10, 3));
             Console.WriteLine(Divide(79650, 11));
 
@@ -46,8 +48,6 @@ namespace Week1
         {
             return a - b;
         }
-
-
         public static int Multiply(int a, int b)
         {
             return a * b;
