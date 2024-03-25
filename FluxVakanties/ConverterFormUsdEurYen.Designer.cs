@@ -32,7 +32,6 @@
             this.ExchangeRateLabel = new System.Windows.Forms.Label();
             this.ConvertToYenOrDollarButton = new System.Windows.Forms.Button();
             this.ConvertToEuroButton = new System.Windows.Forms.Button();
-            this.DollarLabel = new System.Windows.Forms.Label();
             this.EuroLabel = new System.Windows.Forms.Label();
             this.DollarTextBox = new System.Windows.Forms.TextBox();
             this.EuroTextBox = new System.Windows.Forms.TextBox();
@@ -92,16 +91,6 @@
             this.ConvertToEuroButton.UseVisualStyleBackColor = false;
             this.ConvertToEuroButton.Click += new System.EventHandler(this.ConvertToEuroButton_Click);
             // 
-            // DollarLabel
-            // 
-            this.DollarLabel.AutoSize = true;
-            this.DollarLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DollarLabel.Location = new System.Drawing.Point(623, 58);
-            this.DollarLabel.Name = "DollarLabel";
-            this.DollarLabel.Size = new System.Drawing.Size(51, 55);
-            this.DollarLabel.TabIndex = 12;
-            this.DollarLabel.Text = "$";
-            // 
             // EuroLabel
             // 
             this.EuroLabel.AutoSize = true;
@@ -135,7 +124,7 @@
             this.DropDownValutaBox.Items.AddRange(new object[] {
             "$ USD",
             "¥ JPY"});
-            this.DropDownValutaBox.Location = new System.Drawing.Point(614, 124);
+            this.DropDownValutaBox.Location = new System.Drawing.Point(623, 50);
             this.DropDownValutaBox.Name = "DropDownValutaBox";
             this.DropDownValutaBox.Size = new System.Drawing.Size(60, 63);
             this.DropDownValutaBox.TabIndex = 17;
@@ -151,7 +140,6 @@
             this.Controls.Add(this.ExchangeRateLabel);
             this.Controls.Add(this.ConvertToYenOrDollarButton);
             this.Controls.Add(this.ConvertToEuroButton);
-            this.Controls.Add(this.DollarLabel);
             this.Controls.Add(this.EuroLabel);
             this.Controls.Add(this.DollarTextBox);
             this.Controls.Add(this.EuroTextBox);
@@ -169,7 +157,6 @@
         private System.Windows.Forms.Label ExchangeRateLabel;
         private System.Windows.Forms.Button ConvertToYenOrDollarButton;
         private System.Windows.Forms.Button ConvertToEuroButton;
-        private System.Windows.Forms.Label DollarLabel;
         private System.Windows.Forms.Label EuroLabel;
         public System.Windows.Forms.TextBox DollarTextBox;
         private System.Windows.Forms.TextBox EuroTextBox;
