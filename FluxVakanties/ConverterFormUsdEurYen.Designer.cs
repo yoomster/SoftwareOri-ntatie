@@ -48,6 +48,11 @@
             0,
             131072});
             this.ExchangeRateNumericUpDown.Location = new System.Drawing.Point(392, 155);
+            this.ExchangeRateNumericUpDown.Maximum = new decimal(new int[] {
+            200,
+            0,
+            0,
+            0});
             this.ExchangeRateNumericUpDown.Name = "ExchangeRateNumericUpDown";
             this.ExchangeRateNumericUpDown.Size = new System.Drawing.Size(54, 20);
             this.ExchangeRateNumericUpDown.TabIndex = 16;
@@ -122,11 +127,11 @@
             this.DropDownValutaBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F);
             this.DropDownValutaBox.FormattingEnabled = true;
             this.DropDownValutaBox.Items.AddRange(new object[] {
-            "$ USD",
-            "¥ JPY"});
+            "$",
+            "¥"});
             this.DropDownValutaBox.Location = new System.Drawing.Point(623, 50);
             this.DropDownValutaBox.Name = "DropDownValutaBox";
-            this.DropDownValutaBox.Size = new System.Drawing.Size(60, 63);
+            this.DropDownValutaBox.Size = new System.Drawing.Size(103, 63);
             this.DropDownValutaBox.TabIndex = 17;
             this.DropDownValutaBox.SelectedIndexChanged += new System.EventHandler(this.DropDownValutaBox_SelectedIndexChanged);
             // 
@@ -144,7 +149,7 @@
             this.Controls.Add(this.DollarTextBox);
             this.Controls.Add(this.EuroTextBox);
             this.Name = "ConverterFormUsdEurYen";
-            this.Text = "ConverterFormUsdEurYen";
+            this.Text = "Converter Form EUR - USD or JPY";
             ((System.ComponentModel.ISupportInitialize)(this.ExchangeRateNumericUpDown)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

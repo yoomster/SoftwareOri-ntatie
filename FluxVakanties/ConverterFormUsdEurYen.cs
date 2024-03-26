@@ -17,22 +17,25 @@ namespace FluxVakanties
             InitializeComponent();
         }
 
+        //$ USD
+        //¥ JPY
+
+        // Handle the SelectedIndexChanged event 
+
         private void DropDownValutaBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            // Check if USD is selected as the source currency
-            if (DropDownValutaBox.SelectedItem.ToString() == "$ USD")
+            // Check if YEN or USD is selected as currency
+            if (DropDownValutaBox.SelectedItem.ToString() == "¥")
             {
-                // Disable target currency ComboBox to prevent selecting Euro as target
-                DropDownValutaBox.Enabled = false;
+                ExchangeRateLabel.Text = "Koers: 1 euro = ¥ ";
+                ExchangeRateNumericUpDown.Value = 165;
             }
-            else
+            else if (DropDownValutaBox.SelectedItem.ToString() == "$")
             {
-                // Enable target currency ComboBox
-                DropDownValutaBox.Enabled = true;
+                ExchangeRateLabel.Text = "Koers: 1 euro = $ ";
+                ExchangeRateNumericUpDown.Value = 2;
             }
         }
-
-        // Handle the SelectedIndexChanged event for target
 
         private void ConvertToYenOrDollarButton_Click(object sender, EventArgs e)
         {
