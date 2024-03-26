@@ -69,5 +69,12 @@ namespace FluxVakanties
             DollarTextBox.Text = Convert.ToString(euroToDollar);
         }
 
+        private void valutaChangeButton_Click(object sender, EventArgs e)
+        {
+            ConverterFormUsdEurYen YenForm = new ConverterFormUsdEurYen();
+            YenForm.Show();
+            this.Hide();
+
+        }
     }
 }

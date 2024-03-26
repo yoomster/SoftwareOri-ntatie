@@ -36,6 +36,7 @@
             this.DollarButton = new System.Windows.Forms.Button();
             this.ExchangeRateLabel = new System.Windows.Forms.Label();
             this.ExchangeRateNumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.valutaChangeButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.ExchangeRateNumericUpDown)).BeginInit();
             this.SuspendLayout();
             // 
@@ -127,11 +128,23 @@
             0,
             0});
             // 
+            // valutaChangeButton
+            // 
+            this.valutaChangeButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.valutaChangeButton.Location = new System.Drawing.Point(480, 139);
+            this.valutaChangeButton.Name = "valutaChangeButton";
+            this.valutaChangeButton.Size = new System.Drawing.Size(166, 49);
+            this.valutaChangeButton.TabIndex = 9;
+            this.valutaChangeButton.Text = "Klik hier voor converter 2, incl YEN ";
+            this.valutaChangeButton.UseVisualStyleBackColor = true;
+            this.valutaChangeButton.Click += new System.EventHandler(this.valutaChangeButton_Click);
+            // 
             // EurToUsdConverter
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(673, 217);
+            this.Controls.Add(this.valutaChangeButton);
             this.Controls.Add(this.ExchangeRateNumericUpDown);
             this.Controls.Add(this.ExchangeRateLabel);
             this.Controls.Add(this.DollarButton);
@@ -159,6 +172,7 @@
         private System.Windows.Forms.Label ExchangeRateLabel;
         private System.Windows.Forms.NumericUpDown ExchangeRateNumericUpDown;
         public System.Windows.Forms.TextBox DollarTextBox;
+        private System.Windows.Forms.Button valutaChangeButton;
     }
 }
 
