@@ -55,7 +55,7 @@
             0});
             this.ExchangeRateNumericUpDown.Name = "ExchangeRateNumericUpDown";
             this.ExchangeRateNumericUpDown.Size = new System.Drawing.Size(54, 20);
-            this.ExchangeRateNumericUpDown.TabIndex = 16;
+            this.ExchangeRateNumericUpDown.TabIndex = 6;
             this.ExchangeRateNumericUpDown.Value = new decimal(new int[] {
             2,
             0,
@@ -79,7 +79,7 @@
             this.ConvertToYenOrDollarButton.Location = new System.Drawing.Point(370, 65);
             this.ConvertToYenOrDollarButton.Name = "ConvertToYenOrDollarButton";
             this.ConvertToYenOrDollarButton.Size = new System.Drawing.Size(55, 42);
-            this.ConvertToYenOrDollarButton.TabIndex = 14;
+            this.ConvertToYenOrDollarButton.TabIndex = 3;
             this.ConvertToYenOrDollarButton.Text = ">";
             this.ConvertToYenOrDollarButton.UseVisualStyleBackColor = false;
             this.ConvertToYenOrDollarButton.Click += new System.EventHandler(this.ConvertToYenOrDollarButton_Click);
@@ -91,7 +91,7 @@
             this.ConvertToEuroButton.Location = new System.Drawing.Point(311, 65);
             this.ConvertToEuroButton.Name = "ConvertToEuroButton";
             this.ConvertToEuroButton.Size = new System.Drawing.Size(53, 42);
-            this.ConvertToEuroButton.TabIndex = 13;
+            this.ConvertToEuroButton.TabIndex = 5;
             this.ConvertToEuroButton.Text = "<";
             this.ConvertToEuroButton.UseVisualStyleBackColor = false;
             this.ConvertToEuroButton.Click += new System.EventHandler(this.ConvertToEuroButton_Click);
@@ -112,7 +112,7 @@
             this.DollarTextBox.Location = new System.Drawing.Point(443, 73);
             this.DollarTextBox.Name = "DollarTextBox";
             this.DollarTextBox.Size = new System.Drawing.Size(161, 26);
-            this.DollarTextBox.TabIndex = 10;
+            this.DollarTextBox.TabIndex = 4;
             // 
             // EuroTextBox
             // 
@@ -120,7 +120,7 @@
             this.EuroTextBox.Location = new System.Drawing.Point(129, 73);
             this.EuroTextBox.Name = "EuroTextBox";
             this.EuroTextBox.Size = new System.Drawing.Size(166, 26);
-            this.EuroTextBox.TabIndex = 9;
+            this.EuroTextBox.TabIndex = 1;
             // 
             // DropDownValutaBox
             // 
@@ -131,8 +131,8 @@
             "¥"});
             this.DropDownValutaBox.Location = new System.Drawing.Point(623, 50);
             this.DropDownValutaBox.Name = "DropDownValutaBox";
-            this.DropDownValutaBox.Size = new System.Drawing.Size(103, 63);
-            this.DropDownValutaBox.TabIndex = 17;
+            this.DropDownValutaBox.Size = new System.Drawing.Size(56, 63);
+            this.DropDownValutaBox.TabIndex = 2;
             this.DropDownValutaBox.SelectedIndexChanged += new System.EventHandler(this.DropDownValutaBox_SelectedIndexChanged);
             // 
             // ConverterFormUsdEurYen
@@ -149,7 +149,7 @@
             this.Controls.Add(this.DollarTextBox);
             this.Controls.Add(this.EuroTextBox);
             this.Name = "ConverterFormUsdEurYen";
-            this.Text = "Converter Form EUR - USD or JPY";
+            this.Text = "Converter EUR - USD or JPY";
             ((System.ComponentModel.ISupportInitialize)(this.ExchangeRateNumericUpDown)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
