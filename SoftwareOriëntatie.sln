@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Week1", "Week1\Week1.csproj
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FluxVakanties", "FluxVakanties\FluxVakanties.csproj", "{EA44901A-3D2B-4DA5-B5B6-D1FF4C03AD81}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Goeroe-calc", "Goeroe-calc\Goeroe-calc.csproj", "{DFCF03AE-F5C0-4DA6-AE5C-C3F65415B040}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{EA44901A-3D2B-4DA5-B5B6-D1FF4C03AD81}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EA44901A-3D2B-4DA5-B5B6-D1FF4C03AD81}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EA44901A-3D2B-4DA5-B5B6-D1FF4C03AD81}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DFCF03AE-F5C0-4DA6-AE5C-C3F65415B040}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DFCF03AE-F5C0-4DA6-AE5C-C3F65415B040}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DFCF03AE-F5C0-4DA6-AE5C-C3F65415B040}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DFCF03AE-F5C0-4DA6-AE5C-C3F65415B040}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -40,6 +40,14 @@ namespace Week1
             //RechtToeRechtAan();
             //AlWandelend();
 
+            decimal d = 168;
+            Console.WriteLine("d: {0}", d);
+
+            decimal c = 3 / 2 * 168;
+            Console.WriteLine("c: {0}", c);
+
+
+
 
             Console.ReadLine();
         }
