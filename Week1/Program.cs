@@ -22,17 +22,17 @@ namespace Week1
             //Console.WriteLine($"your age in 15 years will be: {age + 15}" );
 
             ////-------------------------------
-            //Console.WriteLine(Add(10, 5));
-            //Console.WriteLine(Add(79650, 450));
+            //Add(10, 5);
+            //Add(79650, 450);
 
-            //Console.WriteLine(Subtract(10, 5));
-            //Console.WriteLine(Subtract(79650, 24400));
+            //Subtract(10, 5);
+            //Subtract(79650, 24400);
 
-            //Console.WriteLine(Multiply(10, 5));
-            //Console.WriteLine(Multiply(120, 120));
+            //Multiply(10, 5);
+            //Multiply(120, 120);
 
-            //double multiplied = Divide(10, 5);
-            //Console.WriteLine(multiplied);
+            //double devided = Divide(10, 5);
+            //Console.WriteLine(devided);
             //Console.WriteLine(Divide(10, 3));
             //Console.WriteLine(Divide(79650, 11));
 
@@ -44,17 +44,25 @@ namespace Week1
             Console.ReadLine();
         }
 
-        public static int Add(int a, int b)
+        public static void Add(int a, int b)
         {
-            return a + b;
+            Console.WriteLine( a + b);
         }
-        public static int Subtract(int a, int b)
+        public static void Add(double a, double b)
         {
-            return a - b;
+            Console.WriteLine(a + b);
         }
-        public static int Multiply(int a, int b)
+        public static void Subtract(int a, int b)
         {
-            return a * b;
+            Console.WriteLine(a - b);
+        }
+        public static void Subtract(double a, double b)
+        {
+            Console.WriteLine(a - b);
+        }
+        public static void Multiply(double a, double b)
+        {
+            Console.WriteLine(a * b);
         }
         public static double Divide(double a, double b)
         {
