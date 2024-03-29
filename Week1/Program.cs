@@ -13,71 +13,67 @@ namespace Week1
         static void Main(string[] args)
         {
             //variabelen
-            //string welcome = "Hi, welcome to this app";
-            //Console.WriteLine(welcome);
+            string welcome = "Hi, welcome to this app";
+            Console.WriteLine(welcome);
 
-            //Console.Write( "What is your age: ");
-            //string ageNr = Console.ReadLine();
-            //int.TryParse(ageNr, out int age);
-            //Console.WriteLine($"your age in 15 years will be: {age + 15}" );
+            Console.Write("What is your age: ");
+            string ageNr = Console.ReadLine();
+            int.TryParse(ageNr, out int age);
+            Console.WriteLine($"your age in 15 years will be: {age + 15}");
 
-            ////-------------------------------
-            //Add(10, 5);
-            //Add(79650, 450);
+            //-------------------------------
+            Add(10, 5);
+            Add(79650, 450);
 
-            //Subtract(10, 5);
-            //Subtract(79650, 24400);
+            Subtract(10, 5);
+            Subtract(79650, 24400);
 
-            //Multiply(10, 5);
-            //Multiply(120, 120);
+            Multiply(10, 5);
+            Multiply(120, 120);
 
-            //double devided = Divide(10, 5);
-            //Console.WriteLine(devided);
-            //Console.WriteLine(Divide(10, 3));
-            //Console.WriteLine(Divide(79650, 11));
+            Divide(10, 5);
+            Divide(10, 3);
+            Divide(79650, 11);
 
+            Console.WriteLine();
 
-            //RechtToeRechtAan();
-            //AlWandelend();
+            Console.WriteLine("Recht Toe Recht Aan opdracht");
+            RechtToeRechtAan();
 
-            decimal d = 168;
-            Console.WriteLine("d: {0}", d);
+            Console.WriteLine();
 
-            decimal c = 3 / 2 * 168;
-            Console.WriteLine("c: {0}", c);
-
-
-
+            Console.WriteLine("Al wandelend opdracht");
+            AlWandelend();
 
             Console.ReadLine();
         }
 
-        public static void Add(int a, int b)
+        static void Add(int a, int b)
         {
-            Console.WriteLine( a + b);
+            Console.WriteLine( $"optellen {a} plus {b}: { a + b}");
         }
-        public static void Add(double a, double b)
+        static void Add(double a, double b)
         {
-            Console.WriteLine(a + b);
+            Console.WriteLine($"optellen {a} plus {b}: {a + b}");
         }
-        public static void Subtract(int a, int b)
+        static void Subtract(int a, int b)
         {
-            Console.WriteLine(a - b);
+            Console.WriteLine($"aftrekken {a} min {b}: {a - b}");
         }
-        public static void Subtract(double a, double b)
+        static void Subtract(double a, double b)
         {
-            Console.WriteLine(a - b);
+            Console.WriteLine($"aftrekken {a} min {b}: {a - b}");
         }
-        public static void Multiply(double a, double b)
+        static void Multiply(double a, double b)
         {
-            Console.WriteLine(a * b);
+            Console.WriteLine($"verminigvuldigen {a} keer {b}: {a * b}");
         }
-        public static double Divide(double a, double b)
+        static void Divide(double a, double b)
         {
-            return a / b;
+            Console.WriteLine($"delen {a} gedeeld door {b}: {a / b}");
         }
 
-        public static void RechtToeRechtAan()
+        static void RechtToeRechtAan()
         {
             //double output = (100 * 0.7) - (25 * 0.6);
 
@@ -89,13 +85,13 @@ namespace Week1
 
         }
 
-        public static void AlWandelend()
+        static void AlWandelend()
         {
             double afstand = 20;
 
             for (int i = 1; i <= 5; i++)
             {
-                afstand = afstand - (afstand / 4);
+                afstand -= (afstand / 4);
                 Console.WriteLine($"resterende afstand na rustpunt {i} is {afstand}");
             }
 
