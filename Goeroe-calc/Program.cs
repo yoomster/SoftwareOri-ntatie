@@ -29,8 +29,7 @@ namespace Goeroe_calc
 
                 if (is1stNumValid == false || is2ndNumValid == false)
                 {
-                    Console.WriteLine();
-                    Console.WriteLine("De invoer is niet akkoord, we accepteren alleen cijfers. Probeer het opnieuw");
+                    PrintMessage("De invoer is niet akkoord, we accepteren alleen cijfers. Probeer het opnieuw");
                     Console.WriteLine();
                 }
 
@@ -39,31 +38,30 @@ namespace Goeroe_calc
            
             Console.WriteLine();
 
-            //Als de uitkomst onder de nul is laat je dit duidelijk zien,
-            //bijvoorbeeld door er achter de tekst ‘LET OP: is negatief’ te zetten.
-
-
-            //vertel gebruiker hoeveel je krijgt als je de getallen optelt
             result = Add(firstNumber, secondNumber);
 
-            Console.WriteLine($"Uitkomst optellen: {result}");
+            PrintMessage($"Uitkomst optellen: {result}");
             if (result < 0)
-                Console.WriteLine("LET OP: is negatief");
+                PrintMessage("LET OP: is negatief");
 
-            //en als je de getallen vermenigvuldigt
             result = Multiply(firstNumber, secondNumber);
-            Console.WriteLine($"Uitkomst vermenigvuldigen: {result}");
+            PrintMessage($"Uitkomst vermenigvuldigen: {result}");
+            if (result < 0)
+                PrintMessage("LET OP: is negatief");
 
-
-            //door worteltrekken
             result = SquareRoot(firstNumber);
-            Console.WriteLine( $"Uitkomst worteltrekken {firstNumber}: {result}");
+            PrintMessage( $"Uitkomst worteltrekken {firstNumber}: {result}");
+            if (result < 0)
+                PrintMessage("LET OP: is negatief");
             result = SquareRoot(secondNumber);
-            Console.WriteLine($"Uitkomst worteltrekken {secondNumber}: {result}");
+            PrintMessage($"Uitkomst worteltrekken {secondNumber}: {result}");
+            if (result < 0)
+                PrintMessage("LET OP: is negatief");
 
-            //en door te delen
             result = Divide(firstNumber, secondNumber);
-            Console.WriteLine($"Uitkomst delen: {result}");
+            PrintMessage($"Uitkomst delen: {result}");
+            if (result < 0)
+                PrintMessage("LET OP: is negatief");
 
             Console.ReadLine();
         }
@@ -90,9 +88,7 @@ namespace Goeroe_calc
 
         public static double SquareRoot(double a)
         {
-            double output = Math.Sqrt(a);
-
-            return output;
+            return Math.Sqrt(a);
         }
     }
 }
