@@ -19,7 +19,6 @@ namespace FluxVakanties
 
         //$ USD
         //¥ JPY
-
         private void DropDownValutaBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             // Check YEN of USD selected as currency
@@ -37,7 +36,6 @@ namespace FluxVakanties
 
         private void ConvertToYenOrDollarButton_Click(object sender, EventArgs e)
         {
-            //tekst in de tekstvakken omzetten naar nr
             string euroText = EuroTextBox.Text;
             bool tryConvert = decimal.TryParse(euroText, out decimal euros);
 
@@ -54,14 +52,12 @@ namespace FluxVakanties
             decimal exchangeRate = ExchangeRateNumericUpDown.Value;
             decimal euroToDollar = euros * exchangeRate;
 
-            //convert weer naar text
             //toon dollars in de rechter TextBox
             DollarTextBox.Text = Convert.ToString(euroToDollar);
         }
 
         private void ConvertToEuroButton_Click(object sender, EventArgs e)
         {
-            //tekst in de tekstvakken omzetten naar nr
             string dollarText = DollarTextBox.Text;
             bool tryConvert = decimal.TryParse(dollarText, out decimal dollars);
 
@@ -79,7 +75,6 @@ namespace FluxVakanties
             decimal exchangeRate = ExchangeRateNumericUpDown.Value;
             decimal dollarToEuro = dollars / exchangeRate;
 
-            //convert weer naar text
             //toon Euro’s in de linker TextBox in text
             string euro = Convert.ToString(dollarToEuro);
             EuroTextBox.Text = euro;

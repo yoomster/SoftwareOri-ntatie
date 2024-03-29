@@ -25,13 +25,11 @@ namespace FluxVakanties
 
         private void EuroButton_Click(object sender, EventArgs e)
         {
-            //Voeg een controle toe op de invoer van bedragen
 
             //tekst in de tekstvakken omzetten naar nr
             string dollarText = DollarTextBox.Text;
             bool tryConvert = decimal.TryParse(dollarText, out decimal dollars);
 
-            //bij geldig invoer, doe berekening 
             //bij ongeldige invoer, duidelijke foutmelding + niets berekenen
             if (tryConvert == false)
             {
@@ -64,7 +62,6 @@ namespace FluxVakanties
             decimal exchangeRate = ExchangeRateNumericUpDown.Value;
             decimal euroToDollar = euros * exchangeRate;
 
-            //convert dec weer naar text
             //toon dollars in de rechter TextBox
             DollarTextBox.Text = Convert.ToString(euroToDollar);
         }
@@ -74,7 +71,6 @@ namespace FluxVakanties
             ConverterFormUsdEurYen YenForm = new ConverterFormUsdEurYen();
             YenForm.Show();
             this.Hide();
-
         }
     }
 }
