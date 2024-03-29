@@ -10,31 +10,48 @@ namespace Goeroe_calc
     {
         static void Main(string[] args)
         {
+            double a;
+            double b;
+            double uitkomst;
+            
+            PrintMessage("Welkom bij de calculatie app");
+
+ 
             //vraag om getal 1
             PrintMessage("Vul een getal in en druk op enter: ");
-            double.TryParse(Console.ReadLine(), out double number);
+            bool checkNr = double.TryParse(Console.ReadLine(), out a);
 
             //vraag om getal 2
             Console.WriteLine("Vul nog een getal in en druk opnieuw op enter: ");
-            double.TryParse(Console.ReadLine(), out double numberTwo);
+            bool checkNrTwo = double.TryParse(Console.ReadLine(), out b);
+
+            Console.WriteLine();
+
+            //Als de uitkomst onder de nul is laat je dit duidelijk zien,
+            //bijvoorbeeld door er achter de tekst ‘LET OP: is negatief’ te zetten.
+
 
             //vertel gebruiker hoeveel je krijgt als je de getallen optelt
-            Console.WriteLine("Uitkomst optellen: " + (number + numberTwo));
+            uitkomst = Add(a, b);
+            Console.WriteLine($"Uitkomst optellen: {uitkomst}");
+            if (uitkomst < 0)
+            {
+                Console.WriteLine("LET OP: is negatief");
+            }
 
             //en als je de getallen vermenigvuldigt
-            Console.WriteLine("Uitkomst vermenigvuldigen: " + (number * numberTwo));
+            uitkomst = Multiply(a, b);
+            Console.WriteLine($"Uitkomst vermenigvuldigen: {uitkomst}");
 
             //door worteltrekken
-            SquareRoot(number);
-
-
-            Console.WriteLine("Uitkomst worteltrekken: " + (number * numberTwo));
-
+            uitkomst = SquareRoot(a);
+            Console.WriteLine( $"Uitkomst worteltrekken {a}: {uitkomst}");
+            uitkomst = SquareRoot(b);
+            Console.WriteLine($"Uitkomst worteltrekken {b}: {uitkomst}");
 
             //en door te delen
-            Console.WriteLine("Uitkomst delen: " + (number / numberTwo));
-
-
+            uitkomst = Divide(a, b);
+            Console.WriteLine($"Uitkomst delen: {uitkomst}");
 
             Console.ReadLine();
         }
@@ -44,16 +61,20 @@ namespace Goeroe_calc
             Console.WriteLine(a);
         }
 
-        public static void Add(double a, double b)
+        public static double Add(double a, double b)
         {
-            Console.WriteLine(a + b);
+            return a + b;
         }
        
-        public static void Multiply(double a, double b)
+        public static double Multiply(double a, double b)
         {
-            Console.WriteLine(a * b);
+            return a * b;
         }
-        
+
+        public static double Divide(double a, double b)
+        {
+            return a / b;
+        }
 
         public static double SquareRoot(double a)
         {
