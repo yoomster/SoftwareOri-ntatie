@@ -20,11 +20,9 @@ namespace FluxVakanties
         //$ USD
         //¥ JPY
 
-        // Handle the SelectedIndexChanged event 
-
         private void DropDownValutaBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            // Check if YEN or USD is selected as currency
+            // Check YEN of USD selected as currency
             if (DropDownValutaBox.SelectedItem.ToString() == "¥")
             {
                 ExchangeRateLabel.Text = "Koers: 1 euro = ¥ ";
