@@ -10,21 +10,33 @@ namespace Goeroe_calc
     {
         static void Main(string[] args)
         {
-            double a;
-            double b;
-            double uitkomst;
-            
+            double firstNumber;
+            double secondNumber;
+            double result;
+            bool is1stNumValid;
+            bool is2ndNumValid;
+
+
             PrintMessage("Welkom bij de calculatie app");
 
+            do
+            {
+                PrintMessage("Vul een getal in en druk op enter: ");
+                is1stNumValid = double.TryParse(Console.ReadLine(), out firstNumber);
+
+                PrintMessage("Vul nog een getal in en druk opnieuw op enter: ");
+                is2ndNumValid = double.TryParse(Console.ReadLine(), out secondNumber);
+
+                if (is1stNumValid == false || is2ndNumValid == false)
+                {
+                    Console.WriteLine();
+                    Console.WriteLine("De invoer is niet akkoord, we accepteren alleen cijfers. Probeer het opnieuw");
+                    Console.WriteLine();
+                }
+
+            } while (is1stNumValid == false || is2ndNumValid == false);
  
-            //vraag om getal 1
-            PrintMessage("Vul een getal in en druk op enter: ");
-            bool checkNr = double.TryParse(Console.ReadLine(), out a);
-
-            //vraag om getal 2
-            Console.WriteLine("Vul nog een getal in en druk opnieuw op enter: ");
-            bool checkNrTwo = double.TryParse(Console.ReadLine(), out b);
-
+           
             Console.WriteLine();
 
             //Als de uitkomst onder de nul is laat je dit duidelijk zien,
@@ -32,26 +44,26 @@ namespace Goeroe_calc
 
 
             //vertel gebruiker hoeveel je krijgt als je de getallen optelt
-            uitkomst = Add(a, b);
-            Console.WriteLine($"Uitkomst optellen: {uitkomst}");
-            if (uitkomst < 0)
-            {
+            result = Add(firstNumber, secondNumber);
+
+            Console.WriteLine($"Uitkomst optellen: {result}");
+            if (result < 0)
                 Console.WriteLine("LET OP: is negatief");
-            }
 
             //en als je de getallen vermenigvuldigt
-            uitkomst = Multiply(a, b);
-            Console.WriteLine($"Uitkomst vermenigvuldigen: {uitkomst}");
+            result = Multiply(firstNumber, secondNumber);
+            Console.WriteLine($"Uitkomst vermenigvuldigen: {result}");
+
 
             //door worteltrekken
-            uitkomst = SquareRoot(a);
-            Console.WriteLine( $"Uitkomst worteltrekken {a}: {uitkomst}");
-            uitkomst = SquareRoot(b);
-            Console.WriteLine($"Uitkomst worteltrekken {b}: {uitkomst}");
+            result = SquareRoot(firstNumber);
+            Console.WriteLine( $"Uitkomst worteltrekken {firstNumber}: {result}");
+            result = SquareRoot(secondNumber);
+            Console.WriteLine($"Uitkomst worteltrekken {secondNumber}: {result}");
 
             //en door te delen
-            uitkomst = Divide(a, b);
-            Console.WriteLine($"Uitkomst delen: {uitkomst}");
+            result = Divide(firstNumber, secondNumber);
+            Console.WriteLine($"Uitkomst delen: {result}");
 
             Console.ReadLine();
         }
