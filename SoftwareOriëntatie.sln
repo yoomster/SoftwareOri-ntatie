@@ -15,6 +15,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "week 2", "week 2", "{FA5E15
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp", "ConsoleApp\ConsoleApp.csproj", "{1B0A14C1-0E17-471F-8F7A-F2627B40B740}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StringMethodenForms", "StringMethodenForms\StringMethodenForms.csproj", "{779DAAE1-9B90-4C32-91F0-E94476933FBF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -37,6 +39,10 @@ Global
 		{1B0A14C1-0E17-471F-8F7A-F2627B40B740}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1B0A14C1-0E17-471F-8F7A-F2627B40B740}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1B0A14C1-0E17-471F-8F7A-F2627B40B740}.Release|Any CPU.Build.0 = Release|Any CPU
+		{779DAAE1-9B90-4C32-91F0-E94476933FBF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{779DAAE1-9B90-4C32-91F0-E94476933FBF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{779DAAE1-9B90-4C32-91F0-E94476933FBF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{779DAAE1-9B90-4C32-91F0-E94476933FBF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -46,6 +52,7 @@ Global
 		{EA44901A-3D2B-4DA5-B5B6-D1FF4C03AD81} = {850C123B-6556-4B35-B6ED-E1B36C859E1A}
 		{DFCF03AE-F5C0-4DA6-AE5C-C3F65415B040} = {850C123B-6556-4B35-B6ED-E1B36C859E1A}
 		{1B0A14C1-0E17-471F-8F7A-F2627B40B740} = {FA5E15F3-68D7-4F8E-A1AF-B966346200E2}
+		{779DAAE1-9B90-4C32-91F0-E94476933FBF} = {FA5E15F3-68D7-4F8E-A1AF-B966346200E2}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {29637558-D337-466E-B0C5-6C9107A7A9E0}
