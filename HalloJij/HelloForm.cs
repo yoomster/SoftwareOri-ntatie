@@ -19,14 +19,45 @@ namespace HalloJij
 
         private void OkButton_Click(object sender, EventArgs e)
         {
-            //voor- en achternaam En vinkt een radiobutton geslacht
-            //
-            //programma toont MessageBox met de tekst “Hallo mejuffrouw Jansen” of “Hallo mijnheer Jansen”
-            //afhankelijk van de ingevoerde tekst en geselecteerde radiobutton. 
-            //De gebruiker voert Voornaam +Achternaam in, maar de MessageBox toont de tekst zonder de voornaam.
-            //Invoer als “Jan de Graaf” en radiobutton geslacht “Man“ levert het bericht “Hallo mijnheer de Graaf” op.
+            string message = string.Empty;
+            List<string> nameElements = NameBox.Text.Split(' ').ToList();
 
+            if (nameElements.Count < 2)
+            {
+                message = "Vul aub uw voor- en achternaam in";
+            }
 
+            nameElements.RemoveAt(0);
+            StringBuilder stringBuilder = new StringBuilder();
+            string lastName = string.Empty;
+
+            lastName = CreateLastName(nameElements, stringBuilder);
+
+            if (!WomanButton.Checked && !ManButton.Checked)
+            {
+                message = "invoer incorrect, vink uw geslacht aan aub.";
+            }
+            else if (WomanButton.Checked)
+            {
+                message = $"Hallo mejuffrouw {lastName}";
+            }
+            else if (ManButton.Checked)
+            {
+                message = $"Hallo mijnheer {lastName}";
+            }
+
+            MessageBox.Show(message);
+        }
+
+        private static string CreateLastName(List<string> nameElements, StringBuilder stringBuilder)
+        {
+            string lastName;
+            foreach (string element in nameElements)
+            {
+                stringBuilder.Append($"{element} ");
+            }
+            lastName = stringBuilder.ToString();
+            return lastName;
         }
     }
 }
