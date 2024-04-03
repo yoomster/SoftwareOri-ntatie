@@ -16,5 +16,24 @@ namespace Haxor
         {
             InitializeComponent();
         }
+
+        private void OkButton_Click(object sender, EventArgs e)
+        {
+            string message = MessageBox.Text;
+
+            string editedMessage;
+
+            editedMessage = message.Replace("a", "4");
+            editedMessage = editedMessage.Replace("s", "5");
+            editedMessage = editedMessage.Replace("e", "3");
+            editedMessage = editedMessage.Replace("v", "\\/");
+            editedMessage = editedMessage.Replace("V", "\\/"); 
+            editedMessage = editedMessage.Replace("m", "| V |");
+            editedMessage = editedMessage.Replace("M", "| V |");
+
+
+            Label.Text = editedMessage;
+
+        }
     }
 }

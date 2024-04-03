@@ -41,19 +41,20 @@
             this.OkButton.TabIndex = 0;
             this.OkButton.Text = "Ok";
             this.OkButton.UseVisualStyleBackColor = true;
+            this.OkButton.Click += new System.EventHandler(this.OkButton_Click);
             // 
             // Label
             // 
             this.Label.AutoSize = true;
-            this.Label.Location = new System.Drawing.Point(93, 85);
+            this.Label.Location = new System.Drawing.Point(76, 85);
             this.Label.Name = "Label";
-            this.Label.Size = new System.Drawing.Size(35, 13);
+            this.Label.Size = new System.Drawing.Size(60, 13);
             this.Label.TabIndex = 1;
-            this.Label.Text = "label1";
+            this.Label.Text = "Type hier...";
             // 
             // MessageBox
             // 
-            this.MessageBox.Location = new System.Drawing.Point(186, 85);
+            this.MessageBox.Location = new System.Drawing.Point(210, 85);
             this.MessageBox.Name = "MessageBox";
             this.MessageBox.Size = new System.Drawing.Size(165, 20);
             this.MessageBox.TabIndex = 2;
@@ -67,7 +68,7 @@
             this.Controls.Add(this.Label);
             this.Controls.Add(this.OkButton);
             this.Name = "HaxorForm";
-            this.Text = "HaxorForm";
+            this.Text = "Vervang letters";
             this.ResumeLayout(false);
             this.PerformLayout();
 
