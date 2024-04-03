@@ -19,6 +19,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Haxor", "Haxor\Haxor.csproj
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IndexOfE", "IndexOfE\IndexOfE.csproj", "{6AD3C792-99DB-46B2-B0F5-7E43E7C1EB42}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HalloJij", "HalloJij\HalloJij.csproj", "{9E155E29-685E-4228-894C-3FD9B7CD55FB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -49,6 +51,10 @@ Global
 		{6AD3C792-99DB-46B2-B0F5-7E43E7C1EB42}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6AD3C792-99DB-46B2-B0F5-7E43E7C1EB42}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6AD3C792-99DB-46B2-B0F5-7E43E7C1EB42}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9E155E29-685E-4228-894C-3FD9B7CD55FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9E155E29-685E-4228-894C-3FD9B7CD55FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9E155E29-685E-4228-894C-3FD9B7CD55FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9E155E29-685E-4228-894C-3FD9B7CD55FB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -60,6 +66,7 @@ Global
 		{1B0A14C1-0E17-471F-8F7A-F2627B40B740} = {FA5E15F3-68D7-4F8E-A1AF-B966346200E2}
 		{372597DB-0261-4D83-B56D-1A03EFC82C0F} = {FA5E15F3-68D7-4F8E-A1AF-B966346200E2}
 		{6AD3C792-99DB-46B2-B0F5-7E43E7C1EB42} = {FA5E15F3-68D7-4F8E-A1AF-B966346200E2}
+		{9E155E29-685E-4228-894C-3FD9B7CD55FB} = {FA5E15F3-68D7-4F8E-A1AF-B966346200E2}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {29637558-D337-466E-B0C5-6C9107A7A9E0}
