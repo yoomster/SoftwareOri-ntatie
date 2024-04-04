@@ -52,8 +52,16 @@ namespace HalloJij
 
             Console.WriteLine(firstName, lastName);
 
-
             MessageBox.Show(message);
+
+
+
+
+            //Breid opdracht 3 uit zodat hij bij invoer als “Jan de Graaf” de tekst
+            //“Hallo mijnheer Graaf, de” laat zien door gebruik te maken van de string-methode LastIndexOf.
+            //Breidt opdracht 3 uit zodat invoer als “ jan janssen“
+            //(met veel spaties aan het begin, aan het eind en er tussen) nog steeds werkt.
+            //Dus uitvoer is “Hallo mijnheer Janssen” (zonder extra spaties).
         }
     }
 }

@@ -30,7 +30,7 @@
         {
             this.ResultBox = new System.Windows.Forms.GroupBox();
             this.ThrowsLabel = new System.Windows.Forms.Label();
-            this.diceThrowsList = new System.Windows.Forms.ListBox();
+            this.DiceThrowsList = new System.Windows.Forms.ListBox();
             this.SettingsBox = new System.Windows.Forms.GroupBox();
             this.AmountOfThrowsLabel = new System.Windows.Forms.Label();
             this.PipsLabel = new System.Windows.Forms.Label();
@@ -48,8 +48,8 @@
             // 
             this.ResultBox.Controls.Add(this.TotalPipsLabel);
             this.ResultBox.Controls.Add(this.ThrowsLabel);
-            this.ResultBox.Controls.Add(this.diceThrowsList);
-            this.ResultBox.Location = new System.Drawing.Point(352, 45);
+            this.ResultBox.Controls.Add(this.DiceThrowsList);
+            this.ResultBox.Location = new System.Drawing.Point(341, 34);
             this.ResultBox.Name = "ResultBox";
             this.ResultBox.Size = new System.Drawing.Size(235, 268);
             this.ResultBox.TabIndex = 0;
@@ -65,13 +65,13 @@
             this.ThrowsLabel.TabIndex = 1;
             this.ThrowsLabel.Text = "Worpen:";
             // 
-            // diceThrowsList
+            // DiceThrowsList
             // 
-            this.diceThrowsList.FormattingEnabled = true;
-            this.diceThrowsList.Location = new System.Drawing.Point(6, 54);
-            this.diceThrowsList.Name = "diceThrowsList";
-            this.diceThrowsList.Size = new System.Drawing.Size(219, 173);
-            this.diceThrowsList.TabIndex = 0;
+            this.DiceThrowsList.FormattingEnabled = true;
+            this.DiceThrowsList.Location = new System.Drawing.Point(6, 54);
+            this.DiceThrowsList.Name = "DiceThrowsList";
+            this.DiceThrowsList.Size = new System.Drawing.Size(219, 173);
+            this.DiceThrowsList.TabIndex = 0;
             // 
             // SettingsBox
             // 
@@ -111,6 +111,7 @@
             this.ThrowsNumUpDown.Name = "ThrowsNumUpDown";
             this.ThrowsNumUpDown.Size = new System.Drawing.Size(83, 20);
             this.ThrowsNumUpDown.TabIndex = 3;
+            this.ThrowsNumUpDown.ValueChanged += new System.EventHandler(this.ThrowsNumUpDown_ValueChanged);
             // 
             // PipsNumUpDown
             // 
@@ -127,6 +128,7 @@
             this.ThrowDiceButton.TabIndex = 5;
             this.ThrowDiceButton.Text = "Gooi dobbelsteen";
             this.ThrowDiceButton.UseVisualStyleBackColor = true;
+            this.ThrowDiceButton.Click += new System.EventHandler(this.ThrowDiceButton_Click);
             // 
             // TotalPipsLabel
             // 
@@ -160,7 +162,7 @@
 
         private System.Windows.Forms.GroupBox ResultBox;
         private System.Windows.Forms.Label ThrowsLabel;
-        private System.Windows.Forms.ListBox diceThrowsList;
+        private System.Windows.Forms.ListBox DiceThrowsList;
         private System.Windows.Forms.GroupBox SettingsBox;
         private System.Windows.Forms.Button ThrowDiceButton;
         private System.Windows.Forms.NumericUpDown PipsNumUpDown;
