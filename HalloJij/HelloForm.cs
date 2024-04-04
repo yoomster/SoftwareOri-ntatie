@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -19,45 +20,40 @@ namespace HalloJij
 
         private void OkButton_Click(object sender, EventArgs e)
         {
+            string fullName = NameBox.Text;
+            string firstName= string.Empty;
+            string lastName= string.Empty;
             string message = string.Empty;
-            List<string> nameElements = NameBox.Text.Split(' ').ToList();
 
-            if (nameElements.Count < 2)
+            int positionOfSpace = fullName.IndexOf(" ");
+
+            if (positionOfSpace == -1)
             {
-                message = "Vul aub uw voor- en achternaam in";
+                message = "Invoer incorrect, vul aub uw voor- en achternaam in";
+            }
+            else
+            {
+                firstName = fullName.Substring(0, positionOfSpace);
+                lastName = fullName.Substring(positionOfSpace + 1);
+
+                if (!WomanButton.Checked && !ManButton.Checked)
+                {
+                    message = "Invoer incorrect, vink uw geslacht aan aub.";
+                }
+                else if (WomanButton.Checked)
+                {
+                    message = $"Hallo mejuffrouw {lastName}";
+                }
+                else if (ManButton.Checked)
+                {
+                    message = $"Hallo mijnheer {lastName}";
+                }
             }
 
-            nameElements.RemoveAt(0);
-            StringBuilder stringBuilder = new StringBuilder();
-            string lastName = string.Empty;
+            Console.WriteLine(firstName, lastName);
 
-            lastName = CreateLastName(nameElements, stringBuilder);
-
-            if (!WomanButton.Checked && !ManButton.Checked)
-            {
-                message = "invoer incorrect, vink uw geslacht aan aub.";
-            }
-            else if (WomanButton.Checked)
-            {
-                message = $"Hallo mejuffrouw {lastName}";
-            }
-            else if (ManButton.Checked)
-            {
-                message = $"Hallo mijnheer {lastName}";
-            }
 
             MessageBox.Show(message);
-        }
-
-        private static string CreateLastName(List<string> nameElements, StringBuilder stringBuilder)
-        {
-            string lastName;
-            foreach (string element in nameElements)
-            {
-                stringBuilder.Append($"{element} ");
-            }
-            lastName = stringBuilder.ToString();
-            return lastName;
         }
     }
 }
