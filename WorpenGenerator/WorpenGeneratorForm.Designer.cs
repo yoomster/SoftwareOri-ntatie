@@ -29,19 +29,19 @@
         private void InitializeComponent()
         {
             this.ResultBox = new System.Windows.Forms.GroupBox();
+            this.TotalPipsLabel = new System.Windows.Forms.Label();
             this.ThrowsLabel = new System.Windows.Forms.Label();
             this.DiceThrowsList = new System.Windows.Forms.ListBox();
             this.SettingsBox = new System.Windows.Forms.GroupBox();
-            this.AmountOfThrowsLabel = new System.Windows.Forms.Label();
-            this.PipsLabel = new System.Windows.Forms.Label();
-            this.ThrowsNumUpDown = new System.Windows.Forms.NumericUpDown();
+            this.ButtonThrowDice = new System.Windows.Forms.Button();
             this.PipsNumUpDown = new System.Windows.Forms.NumericUpDown();
-            this.ThrowDiceButton = new System.Windows.Forms.Button();
-            this.TotalPipsLabel = new System.Windows.Forms.Label();
+            this.ThrowsNumUpDown = new System.Windows.Forms.NumericUpDown();
+            this.PipsLabel = new System.Windows.Forms.Label();
+            this.AmountOfThrowsLabel = new System.Windows.Forms.Label();
             this.ResultBox.SuspendLayout();
             this.SettingsBox.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ThrowsNumUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PipsNumUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ThrowsNumUpDown)).BeginInit();
             this.SuspendLayout();
             // 
             // ResultBox
@@ -55,6 +55,15 @@
             this.ResultBox.TabIndex = 0;
             this.ResultBox.TabStop = false;
             this.ResultBox.Text = "Resultaat";
+            // 
+            // TotalPipsLabel
+            // 
+            this.TotalPipsLabel.AutoSize = true;
+            this.TotalPipsLabel.Location = new System.Drawing.Point(21, 239);
+            this.TotalPipsLabel.Name = "TotalPipsLabel";
+            this.TotalPipsLabel.Size = new System.Drawing.Size(99, 13);
+            this.TotalPipsLabel.TabIndex = 2;
+            this.TotalPipsLabel.Text = "Totaal aantal ogen:";
             // 
             // ThrowsLabel
             // 
@@ -75,7 +84,7 @@
             // 
             // SettingsBox
             // 
-            this.SettingsBox.Controls.Add(this.ThrowDiceButton);
+            this.SettingsBox.Controls.Add(this.ButtonThrowDice);
             this.SettingsBox.Controls.Add(this.PipsNumUpDown);
             this.SettingsBox.Controls.Add(this.ThrowsNumUpDown);
             this.SettingsBox.Controls.Add(this.PipsLabel);
@@ -87,14 +96,44 @@
             this.SettingsBox.TabStop = false;
             this.SettingsBox.Text = "Instellingen";
             // 
-            // AmountOfThrowsLabel
+            // ButtonThrowDice
             // 
-            this.AmountOfThrowsLabel.AutoSize = true;
-            this.AmountOfThrowsLabel.Location = new System.Drawing.Point(3, 16);
-            this.AmountOfThrowsLabel.Name = "AmountOfThrowsLabel";
-            this.AmountOfThrowsLabel.Size = new System.Drawing.Size(78, 13);
-            this.AmountOfThrowsLabel.TabIndex = 0;
-            this.AmountOfThrowsLabel.Text = "Aantal worpen:";
+            this.ButtonThrowDice.Location = new System.Drawing.Point(102, 70);
+            this.ButtonThrowDice.Name = "ButtonThrowDice";
+            this.ButtonThrowDice.Size = new System.Drawing.Size(120, 23);
+            this.ButtonThrowDice.TabIndex = 5;
+            this.ButtonThrowDice.Text = "Gooi dobbelsteen";
+            this.ButtonThrowDice.UseVisualStyleBackColor = true;
+            this.ButtonThrowDice.Click += new System.EventHandler(this.ButtonThrowDice_Click);
+            // 
+            // PipsNumUpDown
+            // 
+            this.PipsNumUpDown.Location = new System.Drawing.Point(154, 44);
+            this.PipsNumUpDown.Name = "PipsNumUpDown";
+            this.PipsNumUpDown.Size = new System.Drawing.Size(81, 20);
+            this.PipsNumUpDown.TabIndex = 4;
+            // 
+            // ThrowsNumUpDown
+            // 
+            this.ThrowsNumUpDown.Location = new System.Drawing.Point(153, 16);
+            this.ThrowsNumUpDown.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+            this.ThrowsNumUpDown.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.ThrowsNumUpDown.Name = "ThrowsNumUpDown";
+            this.ThrowsNumUpDown.Size = new System.Drawing.Size(83, 20);
+            this.ThrowsNumUpDown.TabIndex = 3;
+            this.ThrowsNumUpDown.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // PipsLabel
             // 
@@ -105,39 +144,14 @@
             this.PipsLabel.TabIndex = 2;
             this.PipsLabel.Text = "Aantal ogen:";
             // 
-            // ThrowsNumUpDown
+            // AmountOfThrowsLabel
             // 
-            this.ThrowsNumUpDown.Location = new System.Drawing.Point(153, 16);
-            this.ThrowsNumUpDown.Name = "ThrowsNumUpDown";
-            this.ThrowsNumUpDown.Size = new System.Drawing.Size(83, 20);
-            this.ThrowsNumUpDown.TabIndex = 3;
-            this.ThrowsNumUpDown.ValueChanged += new System.EventHandler(this.ThrowsNumUpDown_ValueChanged);
-            // 
-            // PipsNumUpDown
-            // 
-            this.PipsNumUpDown.Location = new System.Drawing.Point(154, 44);
-            this.PipsNumUpDown.Name = "PipsNumUpDown";
-            this.PipsNumUpDown.Size = new System.Drawing.Size(81, 20);
-            this.PipsNumUpDown.TabIndex = 4;
-            // 
-            // ThrowDiceButton
-            // 
-            this.ThrowDiceButton.Location = new System.Drawing.Point(102, 70);
-            this.ThrowDiceButton.Name = "ThrowDiceButton";
-            this.ThrowDiceButton.Size = new System.Drawing.Size(120, 23);
-            this.ThrowDiceButton.TabIndex = 5;
-            this.ThrowDiceButton.Text = "Gooi dobbelsteen";
-            this.ThrowDiceButton.UseVisualStyleBackColor = true;
-            this.ThrowDiceButton.Click += new System.EventHandler(this.ThrowDiceButton_Click);
-            // 
-            // TotalPipsLabel
-            // 
-            this.TotalPipsLabel.AutoSize = true;
-            this.TotalPipsLabel.Location = new System.Drawing.Point(21, 239);
-            this.TotalPipsLabel.Name = "TotalPipsLabel";
-            this.TotalPipsLabel.Size = new System.Drawing.Size(99, 13);
-            this.TotalPipsLabel.TabIndex = 2;
-            this.TotalPipsLabel.Text = "Totaal aantal ogen:";
+            this.AmountOfThrowsLabel.AutoSize = true;
+            this.AmountOfThrowsLabel.Location = new System.Drawing.Point(3, 16);
+            this.AmountOfThrowsLabel.Name = "AmountOfThrowsLabel";
+            this.AmountOfThrowsLabel.Size = new System.Drawing.Size(78, 13);
+            this.AmountOfThrowsLabel.TabIndex = 0;
+            this.AmountOfThrowsLabel.Text = "Aantal worpen:";
             // 
             // WorpenGeneratorForm
             // 
@@ -152,8 +166,8 @@
             this.ResultBox.PerformLayout();
             this.SettingsBox.ResumeLayout(false);
             this.SettingsBox.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ThrowsNumUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PipsNumUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ThrowsNumUpDown)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -164,7 +178,7 @@
         private System.Windows.Forms.Label ThrowsLabel;
         private System.Windows.Forms.ListBox DiceThrowsList;
         private System.Windows.Forms.GroupBox SettingsBox;
-        private System.Windows.Forms.Button ThrowDiceButton;
+        private System.Windows.Forms.Button ButtonThrowDice;
         private System.Windows.Forms.NumericUpDown PipsNumUpDown;
         private System.Windows.Forms.NumericUpDown ThrowsNumUpDown;
         private System.Windows.Forms.Label PipsLabel;
