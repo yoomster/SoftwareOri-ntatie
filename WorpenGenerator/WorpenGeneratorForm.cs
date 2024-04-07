@@ -12,6 +12,7 @@ namespace WorpenGenerator
 {
     public partial class WorpenGeneratorForm : Form
     {
+
         public WorpenGeneratorForm()
         {
             InitializeComponent();
@@ -19,16 +20,23 @@ namespace WorpenGenerator
 
         private void ButtonThrowDice_Click(object sender, EventArgs e)
         {
-            //empty listbox
             DiceThrowsList.Items.Clear();
-            //waardoor “aantal worpen” keer een willekeurig
-            //getal van 1 t/m 6 wordt toegevoegd aan de ListBox.
             Random random = new Random();
 
-            int diceRoll = random.Next(1, 7);
+            int totalPips = 0;
+
+            for (int i = 0; i < ThrowsNumUpDown.Value; i++)
+            {
+                int diceRoll = random.Next(1, ((int)PipsNumUpDown.Value));
+
+                DiceThrowsList.Items.Add(diceRoll);
+
+                totalPips += diceRoll;
+            }
+
+            TotalPipslabel.Text = totalPips.ToString();
 
 
-            DiceThrowsList.Items.Add(diceRoll);
 
         }
     }

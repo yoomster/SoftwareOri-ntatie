@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.ResultBox = new System.Windows.Forms.GroupBox();
-            this.TotalPipsLabel = new System.Windows.Forms.Label();
+            this.TotalPipsTxtLabel = new System.Windows.Forms.Label();
             this.ThrowsLabel = new System.Windows.Forms.Label();
             this.DiceThrowsList = new System.Windows.Forms.ListBox();
             this.SettingsBox = new System.Windows.Forms.GroupBox();
@@ -38,6 +38,7 @@
             this.ThrowsNumUpDown = new System.Windows.Forms.NumericUpDown();
             this.PipsLabel = new System.Windows.Forms.Label();
             this.AmountOfThrowsLabel = new System.Windows.Forms.Label();
+            this.TotalPipslabel = new System.Windows.Forms.Label();
             this.ResultBox.SuspendLayout();
             this.SettingsBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PipsNumUpDown)).BeginInit();
@@ -46,7 +47,8 @@
             // 
             // ResultBox
             // 
-            this.ResultBox.Controls.Add(this.TotalPipsLabel);
+            this.ResultBox.Controls.Add(this.TotalPipslabel);
+            this.ResultBox.Controls.Add(this.TotalPipsTxtLabel);
             this.ResultBox.Controls.Add(this.ThrowsLabel);
             this.ResultBox.Controls.Add(this.DiceThrowsList);
             this.ResultBox.Location = new System.Drawing.Point(341, 34);
@@ -56,14 +58,14 @@
             this.ResultBox.TabStop = false;
             this.ResultBox.Text = "Resultaat";
             // 
-            // TotalPipsLabel
+            // TotalPipsTxtLabel
             // 
-            this.TotalPipsLabel.AutoSize = true;
-            this.TotalPipsLabel.Location = new System.Drawing.Point(21, 239);
-            this.TotalPipsLabel.Name = "TotalPipsLabel";
-            this.TotalPipsLabel.Size = new System.Drawing.Size(99, 13);
-            this.TotalPipsLabel.TabIndex = 2;
-            this.TotalPipsLabel.Text = "Totaal aantal ogen:";
+            this.TotalPipsTxtLabel.AutoSize = true;
+            this.TotalPipsTxtLabel.Location = new System.Drawing.Point(21, 239);
+            this.TotalPipsTxtLabel.Name = "TotalPipsTxtLabel";
+            this.TotalPipsTxtLabel.Size = new System.Drawing.Size(99, 13);
+            this.TotalPipsTxtLabel.TabIndex = 2;
+            this.TotalPipsTxtLabel.Text = "Totaal aantal ogen:";
             // 
             // ThrowsLabel
             // 
@@ -101,7 +103,7 @@
             this.ButtonThrowDice.Location = new System.Drawing.Point(102, 70);
             this.ButtonThrowDice.Name = "ButtonThrowDice";
             this.ButtonThrowDice.Size = new System.Drawing.Size(120, 23);
-            this.ButtonThrowDice.TabIndex = 5;
+            this.ButtonThrowDice.TabIndex = 3;
             this.ButtonThrowDice.Text = "Gooi dobbelsteen";
             this.ButtonThrowDice.UseVisualStyleBackColor = true;
             this.ButtonThrowDice.Click += new System.EventHandler(this.ButtonThrowDice_Click);
@@ -109,9 +111,19 @@
             // PipsNumUpDown
             // 
             this.PipsNumUpDown.Location = new System.Drawing.Point(154, 44);
+            this.PipsNumUpDown.Minimum = new decimal(new int[] {
+            2,
+            0,
+            0,
+            0});
             this.PipsNumUpDown.Name = "PipsNumUpDown";
             this.PipsNumUpDown.Size = new System.Drawing.Size(81, 20);
-            this.PipsNumUpDown.TabIndex = 4;
+            this.PipsNumUpDown.TabIndex = 2;
+            this.PipsNumUpDown.Value = new decimal(new int[] {
+            6,
+            0,
+            0,
+            0});
             // 
             // ThrowsNumUpDown
             // 
@@ -128,7 +140,7 @@
             0});
             this.ThrowsNumUpDown.Name = "ThrowsNumUpDown";
             this.ThrowsNumUpDown.Size = new System.Drawing.Size(83, 20);
-            this.ThrowsNumUpDown.TabIndex = 3;
+            this.ThrowsNumUpDown.TabIndex = 1;
             this.ThrowsNumUpDown.Value = new decimal(new int[] {
             1,
             0,
@@ -152,6 +164,15 @@
             this.AmountOfThrowsLabel.Size = new System.Drawing.Size(78, 13);
             this.AmountOfThrowsLabel.TabIndex = 0;
             this.AmountOfThrowsLabel.Text = "Aantal worpen:";
+            // 
+            // TotalPipslabel
+            // 
+            this.TotalPipslabel.AutoSize = true;
+            this.TotalPipslabel.Location = new System.Drawing.Point(163, 239);
+            this.TotalPipslabel.Name = "TotalPipslabel";
+            this.TotalPipslabel.Size = new System.Drawing.Size(13, 13);
+            this.TotalPipslabel.TabIndex = 3;
+            this.TotalPipslabel.Text = "0";
             // 
             // WorpenGeneratorForm
             // 
@@ -183,6 +204,7 @@
         private System.Windows.Forms.NumericUpDown ThrowsNumUpDown;
         private System.Windows.Forms.Label PipsLabel;
         private System.Windows.Forms.Label AmountOfThrowsLabel;
-        private System.Windows.Forms.Label TotalPipsLabel;
+        private System.Windows.Forms.Label TotalPipsTxtLabel;
+        private System.Windows.Forms.Label TotalPipslabel;
     }
 }
