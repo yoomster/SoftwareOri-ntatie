@@ -15,8 +15,8 @@ namespace ConsoleApp
             Console.WriteLine("abcdef".Substring(1, 1));  
             Console.WriteLine("abcdef".Substring(3, 2));
             Console.WriteLine("abcdef".Substring(0, 6));
-            //Console.WriteLine("abcdef".Substring(0, 7));
-            //Console.WriteLine("abcdef".Substring(7, 1));
+            Console.WriteLine("abcdef".Substring(0, 7));
+            Console.WriteLine("abcdef".Substring(7, 1));
 
 
             Console.ReadLine();
