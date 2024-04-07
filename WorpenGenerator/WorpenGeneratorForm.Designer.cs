@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.ResultBox = new System.Windows.Forms.GroupBox();
+            this.HighestThrowLabel = new System.Windows.Forms.Label();
+            this.TotalPipslabel = new System.Windows.Forms.Label();
             this.TotalPipsTxtLabel = new System.Windows.Forms.Label();
             this.ThrowsLabel = new System.Windows.Forms.Label();
             this.DiceThrowsList = new System.Windows.Forms.ListBox();
@@ -38,7 +40,7 @@
             this.ThrowsNumUpDown = new System.Windows.Forms.NumericUpDown();
             this.PipsLabel = new System.Windows.Forms.Label();
             this.AmountOfThrowsLabel = new System.Windows.Forms.Label();
-            this.TotalPipslabel = new System.Windows.Forms.Label();
+            this.LowestThrowLabel = new System.Windows.Forms.Label();
             this.ResultBox.SuspendLayout();
             this.SettingsBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PipsNumUpDown)).BeginInit();
@@ -47,16 +49,36 @@
             // 
             // ResultBox
             // 
+            this.ResultBox.Controls.Add(this.LowestThrowLabel);
+            this.ResultBox.Controls.Add(this.HighestThrowLabel);
             this.ResultBox.Controls.Add(this.TotalPipslabel);
             this.ResultBox.Controls.Add(this.TotalPipsTxtLabel);
             this.ResultBox.Controls.Add(this.ThrowsLabel);
             this.ResultBox.Controls.Add(this.DiceThrowsList);
-            this.ResultBox.Location = new System.Drawing.Point(341, 34);
+            this.ResultBox.Location = new System.Drawing.Point(326, 12);
             this.ResultBox.Name = "ResultBox";
-            this.ResultBox.Size = new System.Drawing.Size(235, 268);
+            this.ResultBox.Size = new System.Drawing.Size(235, 315);
             this.ResultBox.TabIndex = 0;
             this.ResultBox.TabStop = false;
             this.ResultBox.Text = "Resultaat";
+            // 
+            // HighestThrowLabel
+            // 
+            this.HighestThrowLabel.AutoSize = true;
+            this.HighestThrowLabel.Location = new System.Drawing.Point(51, 261);
+            this.HighestThrowLabel.Name = "HighestThrowLabel";
+            this.HighestThrowLabel.Size = new System.Drawing.Size(88, 13);
+            this.HighestThrowLabel.TabIndex = 2;
+            this.HighestThrowLabel.Text = "Hoogste worp:  0";
+            // 
+            // TotalPipslabel
+            // 
+            this.TotalPipslabel.AutoSize = true;
+            this.TotalPipslabel.Location = new System.Drawing.Point(126, 239);
+            this.TotalPipslabel.Name = "TotalPipslabel";
+            this.TotalPipslabel.Size = new System.Drawing.Size(13, 13);
+            this.TotalPipslabel.TabIndex = 3;
+            this.TotalPipslabel.Text = "0";
             // 
             // TotalPipsTxtLabel
             // 
@@ -165,14 +187,14 @@
             this.AmountOfThrowsLabel.TabIndex = 0;
             this.AmountOfThrowsLabel.Text = "Aantal worpen:";
             // 
-            // TotalPipslabel
+            // LowestThrowLabel
             // 
-            this.TotalPipslabel.AutoSize = true;
-            this.TotalPipslabel.Location = new System.Drawing.Point(163, 239);
-            this.TotalPipslabel.Name = "TotalPipslabel";
-            this.TotalPipslabel.Size = new System.Drawing.Size(13, 13);
-            this.TotalPipslabel.TabIndex = 3;
-            this.TotalPipslabel.Text = "0";
+            this.LowestThrowLabel.AutoSize = true;
+            this.LowestThrowLabel.Location = new System.Drawing.Point(51, 284);
+            this.LowestThrowLabel.Name = "LowestThrowLabel";
+            this.LowestThrowLabel.Size = new System.Drawing.Size(86, 13);
+            this.LowestThrowLabel.TabIndex = 4;
+            this.LowestThrowLabel.Text = "Laagste worp:  0";
             // 
             // WorpenGeneratorForm
             // 
@@ -206,5 +228,7 @@
         private System.Windows.Forms.Label AmountOfThrowsLabel;
         private System.Windows.Forms.Label TotalPipsTxtLabel;
         private System.Windows.Forms.Label TotalPipslabel;
+        private System.Windows.Forms.Label HighestThrowLabel;
+        private System.Windows.Forms.Label LowestThrowLabel;
     }
 }
