@@ -58,11 +58,11 @@
             // 
             this.CupSizeLabel.AutoSize = true;
             this.CupSizeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CupSizeLabel.Location = new System.Drawing.Point(249, 259);
+            this.CupSizeLabel.Location = new System.Drawing.Point(243, 257);
             this.CupSizeLabel.Name = "CupSizeLabel";
-            this.CupSizeLabel.Size = new System.Drawing.Size(157, 24);
+            this.CupSizeLabel.Size = new System.Drawing.Size(163, 24);
             this.CupSizeLabel.TabIndex = 3;
-            this.CupSizeLabel.Text = "Beker grootte (cl: ";
+            this.CupSizeLabel.Text = "Beker grootte (cl:) ";
             // 
             // CupSizeTextBox
             // 
@@ -88,7 +88,9 @@
             this.BucketProgressBar.Location = new System.Drawing.Point(25, 28);
             this.BucketProgressBar.Name = "BucketProgressBar";
             this.BucketProgressBar.Size = new System.Drawing.Size(158, 286);
+            this.BucketProgressBar.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
             this.BucketProgressBar.TabIndex = 5;
+            this.BucketProgressBar.Value = 60;
             // 
             // EmmerVullen
             // 
