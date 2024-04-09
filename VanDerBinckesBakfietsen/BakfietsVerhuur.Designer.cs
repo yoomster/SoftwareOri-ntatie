@@ -71,9 +71,9 @@
             CostsPerDayLabel.AutoSize = true;
             CostsPerDayLabel.Location = new Point(329, 258);
             CostsPerDayLabel.Name = "CostsPerDayLabel";
-            CostsPerDayLabel.Size = new Size(205, 15);
+            CostsPerDayLabel.Size = new Size(206, 15);
             CostsPerDayLabel.TabIndex = 3;
-            CostsPerDayLabel.Text = "totale kosten bakfiets en accessoire(s)";
+            CostsPerDayLabel.Text = "Totale kosten bakfiets en accessoire(s)";
             // 
             // ButtonCalculateCost
             // 

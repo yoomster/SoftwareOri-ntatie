@@ -35,21 +35,32 @@ namespace VanDerBinckesBakfietsen
             else if (bikeChoice == "Urban Arrow 6 pers. E-Bike € 60")
                 bikeCost = 60;
 
-            int extrasIndex = AccessoiresList.SelectedIndex;
             int costExtras = 0;
-            int totalCost = (bikeCost * daysOfRental) + (costExtras * daysOfRental);
-     
-            string[] extraAccessores = { "Telefoonhouder", "Helm", "Regenhoes", "Babystoel" };
-            AccessoiresList.Items.AddRange(extraAccessores);
+            List<int> checkedIndexes = new List<int>();
 
-            if (extrasIndex == 0)
-                costExtras += 5;
-            else if (extrasIndex == 1)
-                costExtras += 10;
-            else if (extrasIndex == 2)
-                costExtras += 15;
-            else if (extrasIndex == 3)
-                costExtras += 20;
+            for (int i = 0; i < AccessoiresList.Items.Count; i++)
+            {
+                if (AccessoiresList.GetItemChecked(i))
+                {
+                    checkedIndexes.Add(i);
+                }
+            }
+
+            foreach (var item in checkedIndexes)
+            {
+                if (item == 0)
+                    costExtras += 5;
+                else if (item == 1)
+                    costExtras += 10;
+                else if (item == 2)
+                    costExtras += 15;
+                else if (item == 3)
+                    costExtras += 20;
+            }
+
+            int totalCost = (bikeCost * daysOfRental) + (costExtras * daysOfRental);
+
+            CostsPerDayLabel.Text = $"Totale kosten bakfiets en accessoire(s) is € {totalCost}";
 
         }
     }
