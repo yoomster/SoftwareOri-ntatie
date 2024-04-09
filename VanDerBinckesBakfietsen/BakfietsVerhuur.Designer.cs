@@ -30,18 +30,19 @@
         {
             BikeLabel = new Label();
             RentDaysLabel = new Label();
-            label3 = new Label();
-            label4 = new Label();
+            ExtrasLabel = new Label();
+            CostsPerDayLabel = new Label();
             ButtonCalculateCost = new Button();
-            RentDays = new NumericUpDown();
-            checkedListBox1 = new CheckedListBox();
-            ((System.ComponentModel.ISupportInitialize)RentDays).BeginInit();
+            RentalDaysNumUpDown = new NumericUpDown();
+            AccessoiresList = new CheckedListBox();
+            ChoiceOfBikes = new ComboBox();
+            ((System.ComponentModel.ISupportInitialize)RentalDaysNumUpDown).BeginInit();
             SuspendLayout();
             // 
             // BikeLabel
             // 
             BikeLabel.AutoSize = true;
-            BikeLabel.Location = new Point(61, 46);
+            BikeLabel.Location = new Point(31, 39);
             BikeLabel.Name = "BikeLabel";
             BikeLabel.Size = new Size(173, 15);
             BikeLabel.TabIndex = 0;
@@ -50,70 +51,85 @@
             // RentDaysLabel
             // 
             RentDaysLabel.AutoSize = true;
-            RentDaysLabel.Location = new Point(61, 123);
+            RentDaysLabel.Location = new Point(31, 116);
             RentDaysLabel.Name = "RentDaysLabel";
             RentDaysLabel.Size = new Size(80, 15);
             RentDaysLabel.TabIndex = 1;
             RentDaysLabel.Text = "Aantal dagen:";
             // 
-            // label3
+            // ExtrasLabel
             // 
-            label3.AutoSize = true;
-            label3.Location = new Point(465, 57);
-            label3.Name = "label3";
-            label3.Size = new Size(97, 15);
-            label3.TabIndex = 2;
-            label3.Text = "Extras toevoegen";
+            ExtrasLabel.AutoSize = true;
+            ExtrasLabel.Location = new Point(368, 39);
+            ExtrasLabel.Name = "ExtrasLabel";
+            ExtrasLabel.Size = new Size(97, 15);
+            ExtrasLabel.TabIndex = 2;
+            ExtrasLabel.Text = "Extras toevoegen";
             // 
-            // label4
+            // CostsPerDayLabel
             // 
-            label4.AutoSize = true;
-            label4.Location = new Point(52, 329);
-            label4.Name = "label4";
-            label4.Size = new Size(38, 15);
-            label4.TabIndex = 3;
-            label4.Text = "label4";
+            CostsPerDayLabel.AutoSize = true;
+            CostsPerDayLabel.Location = new Point(329, 258);
+            CostsPerDayLabel.Name = "CostsPerDayLabel";
+            CostsPerDayLabel.Size = new Size(205, 15);
+            CostsPerDayLabel.TabIndex = 3;
+            CostsPerDayLabel.Text = "totale kosten bakfiets en accessoire(s)";
             // 
             // ButtonCalculateCost
             // 
-            ButtonCalculateCost.Location = new Point(492, 301);
+            ButtonCalculateCost.Location = new Point(421, 188);
             ButtonCalculateCost.Name = "ButtonCalculateCost";
             ButtonCalculateCost.Size = new Size(113, 43);
             ButtonCalculateCost.TabIndex = 4;
             ButtonCalculateCost.Text = "Bereken totale kosten";
             ButtonCalculateCost.UseVisualStyleBackColor = true;
+            ButtonCalculateCost.Click += ButtonCalculateCost_Click;
             // 
-            // RentDays
+            // RentalDaysNumUpDown
             // 
-            RentDays.Location = new Point(159, 123);
-            RentDays.Name = "RentDays";
-            RentDays.Size = new Size(119, 23);
-            RentDays.TabIndex = 5;
+            RentalDaysNumUpDown.Location = new Point(129, 116);
+            RentalDaysNumUpDown.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
+            RentalDaysNumUpDown.Name = "RentalDaysNumUpDown";
+            RentalDaysNumUpDown.Size = new Size(119, 23);
+            RentalDaysNumUpDown.TabIndex = 2;
+            RentalDaysNumUpDown.Value = new decimal(new int[] { 1, 0, 0, 0 });
             // 
-            // checkedListBox1
+            // AccessoiresList
             // 
-            checkedListBox1.FormattingEnabled = true;
-            checkedListBox1.Items.AddRange(new object[] { "Regendak € 15", "Babystoeltje € 20", "Smartphonehouder € 5", "Kaarthouder € 5", "Helm € 10" });
-            checkedListBox1.Location = new Point(465, 75);
-            checkedListBox1.Name = "checkedListBox1";
-            checkedListBox1.Size = new Size(166, 130);
-            checkedListBox1.TabIndex = 6;
+            AccessoiresList.CheckOnClick = true;
+            AccessoiresList.FormattingEnabled = true;
+            AccessoiresList.Items.AddRange(new object[] { "Telefoonhouder 5", "Helm 10", "Regenhoes 15", "Babystoel 20" });
+            AccessoiresList.Location = new Point(368, 57);
+            AccessoiresList.Name = "AccessoiresList";
+            AccessoiresList.Size = new Size(166, 94);
+            AccessoiresList.TabIndex = 3;
+            AccessoiresList.ThreeDCheckBoxes = true;
+            // 
+            // ChoiceOfBikes
+            // 
+            ChoiceOfBikes.FormattingEnabled = true;
+            ChoiceOfBikes.Items.AddRange(new object[] { "Urban Arrow 4 pers. € 20", "Urban Arrow 6 pers. € 30", "Urban Arrow 4 pers. E-Bike € 40", "Urban Arrow 6 pers. E-Bike € 60" });
+            ChoiceOfBikes.Location = new Point(129, 57);
+            ChoiceOfBikes.Name = "ChoiceOfBikes";
+            ChoiceOfBikes.Size = new Size(190, 23);
+            ChoiceOfBikes.TabIndex = 1;
             // 
             // BakfietsVerhuur
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
-            Controls.Add(checkedListBox1);
-            Controls.Add(RentDays);
+            ClientSize = new Size(671, 309);
+            Controls.Add(ChoiceOfBikes);
+            Controls.Add(AccessoiresList);
+            Controls.Add(RentalDaysNumUpDown);
             Controls.Add(ButtonCalculateCost);
-            Controls.Add(label4);
-            Controls.Add(label3);
+            Controls.Add(CostsPerDayLabel);
+            Controls.Add(ExtrasLabel);
             Controls.Add(RentDaysLabel);
             Controls.Add(BikeLabel);
             Name = "BakfietsVerhuur";
             Text = "BakfietsVerhuur";
-            ((System.ComponentModel.ISupportInitialize)RentDays).EndInit();
+            ((System.ComponentModel.ISupportInitialize)RentalDaysNumUpDown).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -122,10 +138,11 @@
 
         private Label BikeLabel;
         private Label RentDaysLabel;
-        private Label label3;
-        private Label label4;
+        private Label ExtrasLabel;
+        private Label CostsPerDayLabel;
         private Button ButtonCalculateCost;
-        private NumericUpDown RentDays;
-        private CheckedListBox checkedListBox1;
+        private NumericUpDown RentalDaysNumUpDown;
+        private CheckedListBox AccessoiresList;
+        private ComboBox ChoiceOfBikes;
     }
 }
