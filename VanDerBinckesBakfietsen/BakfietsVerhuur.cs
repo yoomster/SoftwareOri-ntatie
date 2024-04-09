@@ -19,11 +19,11 @@ namespace VanDerBinckesBakfietsen
 
         private void ButtonCalculateCost_Click(object sender, EventArgs e)
         {
-            int daysOfRental = (int)RentalDaysNumUpDown.Value;
+            int numberOfdays = (int)RentalDaysNumUpDown.Value;
             int costBike = ChosenBikeCost();
             List<int> indexExtraItems = SaveAccessoiresToList();
             int costAccessoires = CalculateAccessoiresCost(indexExtraItems);
-            int totalCost = (costBike * daysOfRental) + (costAccessoires * daysOfRental);
+            int totalCost = (costBike * numberOfdays) + (costAccessoires * numberOfdays);
 
             CostsPerDayLabel.Text = $"Totale kosten bakfiets en accessoire(s) is € {totalCost}";
 
