@@ -36,6 +36,11 @@
             RentalDaysNumUpDown = new NumericUpDown();
             AccessoiresList = new CheckedListBox();
             ChoiceOfBikes = new ComboBox();
+            StartDatePicker = new DateTimePicker();
+            RentDateLlabel = new Label();
+            StartLabel = new Label();
+            label1 = new Label();
+            ReturnDatePicker = new DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)RentalDaysNumUpDown).BeginInit();
             SuspendLayout();
             // 
@@ -45,9 +50,9 @@
             BikeLabel.Font = new Font("Segoe UI", 12F);
             BikeLabel.Location = new Point(98, 31);
             BikeLabel.Name = "BikeLabel";
-            BikeLabel.Size = new Size(229, 21);
+            BikeLabel.Size = new Size(226, 21);
             BikeLabel.TabIndex = 0;
-            BikeLabel.Text = "Selecteer uw gewenste bakfiets:";
+            BikeLabel.Text = "Selecteer uw gewenste bakfiets";
             // 
             // RentDaysLabel
             // 
@@ -122,11 +127,59 @@
             ChoiceOfBikes.Size = new Size(190, 29);
             ChoiceOfBikes.TabIndex = 1;
             // 
+            // StartDatePicker
+            // 
+            StartDatePicker.Location = new Point(388, 133);
+            StartDatePicker.Name = "StartDatePicker";
+            StartDatePicker.Size = new Size(253, 23);
+            StartDatePicker.TabIndex = 5;
+            StartDatePicker.ValueChanged += StartDatePicker_ValueChanged;
+            // 
+            // RentDateLlabel
+            // 
+            RentDateLlabel.AutoSize = true;
+            RentDateLlabel.Location = new Point(388, 85);
+            RentDateLlabel.Name = "RentDateLlabel";
+            RentDateLlabel.Size = new Size(72, 15);
+            RentDateLlabel.TabIndex = 7;
+            RentDateLlabel.Text = "Huur datum";
+            // 
+            // StartLabel
+            // 
+            StartLabel.AutoSize = true;
+            StartLabel.Location = new Point(407, 112);
+            StartLabel.Name = "StartLabel";
+            StartLabel.Size = new Size(31, 15);
+            StartLabel.TabIndex = 8;
+            StartLabel.Text = "Start";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(407, 183);
+            label1.Name = "label1";
+            label1.Size = new Size(30, 15);
+            label1.TabIndex = 9;
+            label1.Text = "Eind";
+            // 
+            // ReturnDatePicker
+            // 
+            ReturnDatePicker.Location = new Point(388, 221);
+            ReturnDatePicker.Name = "ReturnDatePicker";
+            ReturnDatePicker.Size = new Size(253, 23);
+            ReturnDatePicker.TabIndex = 10;
+            ReturnDatePicker.ValueChanged += ReturnDatePicker_ValueChanged_1;
+            // 
             // BakfietsVerhuur
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(421, 479);
+            ClientSize = new Size(673, 479);
+            Controls.Add(ReturnDatePicker);
+            Controls.Add(label1);
+            Controls.Add(StartLabel);
+            Controls.Add(RentDateLlabel);
+            Controls.Add(StartDatePicker);
             Controls.Add(ChoiceOfBikes);
             Controls.Add(AccessoiresList);
             Controls.Add(RentalDaysNumUpDown);
@@ -152,5 +205,10 @@
         private NumericUpDown RentalDaysNumUpDown;
         private CheckedListBox AccessoiresList;
         private ComboBox ChoiceOfBikes;
+        private DateTimePicker StartDatePicker;
+        private Label RentDateLlabel;
+        private Label StartLabel;
+        private Label label1;
+        private DateTimePicker ReturnDatePicker;
     }
 }

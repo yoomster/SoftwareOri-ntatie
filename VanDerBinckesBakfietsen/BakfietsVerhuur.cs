@@ -16,6 +16,9 @@ namespace VanDerBinckesBakfietsen
         {
             InitializeComponent();
         }
+        List<string> accessoires = new List<string> ;
+
+        Bakfiets urbanArrow1 = new Bakfiets { Name = "Urban Arrow 01" };
 
         private void ButtonCalculateCost_Click(object sender, EventArgs e)
         {
@@ -80,6 +83,36 @@ namespace VanDerBinckesBakfietsen
 
             return costExtras;
         }
+
+        private void StartDatePicker_ValueChanged(object sender, EventArgs e)
+        {
+            DateTime startDate = StartDatePicker.Value;
+        }
+
+        private void ReturnDatePicker_ValueChanged_1(object sender, EventArgs e)
+        {
+            DateTime returnDate = ReturnDatePicker.Value;
+
+        }
+    }
+
+    public class BakfietsModel()
+    {
+        public string Name { get; set; }
+        public int NrOfPassengers { get; set; }
+        public int Price { get; set; }
+        public FietsAccessoiresModel Accessoires { get; set; }
+    }
+
+    public class FietsAccessoiresModel()
+    {
+        public string Name { get; set; }
+        public int Price { get; set; }
+
+        //Telefoonhouder 5
+        //Helm 10
+        //Regenhoes 15
+        //Babystoel 20
     }
 }
 
