@@ -16,19 +16,21 @@ namespace VanDerBinckesBakfietsen
         {
             InitializeComponent();
         }
-        List<string> accessoires = new List<string> ;
+        //List<string> accessoires = new List<string> ;
 
-        Bakfiets urbanArrow1 = new Bakfiets { Name = "Urban Arrow 01" };
+        BakfietsModel urbanArrow1 = new BakfietsModel { Name = "Urban Arrow 01" };
 
         private void ButtonCalculateCost_Click(object sender, EventArgs e)
         {
             int numberOfdays = (int)RentalDaysNumUpDown.Value;
             int costBike = ChosenBikeCost();
-            List<int> indexExtraItems = SaveAccessoiresToList();
-            int costAccessoires = CalculateAccessoiresCost(indexExtraItems);
+            List<int> IndexAddedAccessoires = SaveAccessoiresToList();
+            int costAccessoires = CalculateAccessoiresCost(IndexAddedAccessoires);
             int totalCost = (costBike * numberOfdays) + (costAccessoires * numberOfdays);
 
-            CostsPerDayLabel.Text = $"Totale kosten bakfiets en accessoire(s) is € {totalCost}";
+            CostsPerDayLabel.Text = $"Kosten per dag {costBike+ costAccessoires}";
+
+            TotalCostLabel.Text = $"Totale kosten {ChoiceOfBikes.Text} (bakfiets) en {IndexAddedAccessoires.}accessoire(s) zijn € {totalCost}";
 
         }
 
@@ -37,9 +39,7 @@ namespace VanDerBinckesBakfietsen
             string bikeChoice = ChoiceOfBikes.Text;
             int bikeCost = 0;
 
-            if (string.IsNullOrEmpty(bikeChoice))
-                Console.WriteLine("De invoer is niet akkoord, selecteer 1");
-            else if (bikeChoice == "Urban Arrow 4 pers. € 20")
+            if (bikeChoice == "Urban Arrow 4 pers. € 20")
                 bikeCost = 20;
             else if (bikeChoice == "Urban Arrow 6 pers. € 30")
                 bikeCost = 30;
@@ -84,15 +84,23 @@ namespace VanDerBinckesBakfietsen
             return costExtras;
         }
 
-        private void StartDatePicker_ValueChanged(object sender, EventArgs e)
-        {
-            DateTime startDate = StartDatePicker.Value;
-        }
 
         private void ReturnDatePicker_ValueChanged_1(object sender, EventArgs e)
         {
-            DateTime returnDate = ReturnDatePicker.Value;
+            TimeSpan difference = ReturnDatePicker.Value - StartDatePicker.Value;
 
+            int totalDays = (int)Math.Ceiling(difference.TotalDays);
+
+            if (totalDays <= 0)
+            {
+                MessageBox.Show("LET OP: is negatief");
+                ButtonCalculateCost.Enabled = false;
+            }
+            else
+            {
+                totalDaysLabel.Text = $"Totaal aantal dagen {totalDays}";
+                ButtonCalculateCost.Enabled = true;
+            }
         }
     }
 
