@@ -21,17 +21,19 @@ namespace VanDerBinckesBakfietsen
         BakfietsModel urbanArrow1 = new BakfietsModel { Name = "Urban Arrow 01" };
 
         public int RentDays { get; set; }
+        public int BikeCost { get; set; }
+        public int AccessoiresCost { get; set; }
+
 
 
 
         private void ButtonCalculateCost_Click(object sender, EventArgs e)
         {
-            int costBike = ChosenBikeCost();
+            BikeCost = ChosenBikeCost();
             List<int> IndexAddedAccessoires = SaveAccessoiresToList();
-            int costAccessoires = CalculateAccessoiresCost(IndexAddedAccessoires);
-            int totalCost = (costBike * RentDays) + (costAccessoires * RentDays);
+            AccessoiresCost = CalculateAccessoiresCost(IndexAddedAccessoires);
+            int totalCost = (BikeCost * RentDays) + (AccessoiresCost * RentDays);
 
-            CostsPerDayLabel.Text = $"Kosten per dag € {costBike + costAccessoires}";
 
             TotalCostLabel.Text = $"Totale kosten bakfiets en bovenstaande accessoire(s) zijn € {totalCost}";
 
@@ -40,17 +42,17 @@ namespace VanDerBinckesBakfietsen
         private int ChosenBikeCost()
         {
             string bikeChoice = ChoiceOfBikes.Text;
-            int bikeCost = 0;
 
             if (bikeChoice == "Urban Arrow 4 pers. € 20")
-                bikeCost = 20;
+                BikeCost = 20;
             else if (bikeChoice == "Urban Arrow 6 pers. € 30")
-                bikeCost = 30;
+                BikeCost = 30;
             else if (bikeChoice == "Urban Arrow 4 pers. E-Bike € 40")
-                bikeCost = 40;
+                BikeCost = 40;
             else if (bikeChoice == "Urban Arrow 6 pers. E-Bike € 60")
-                bikeCost = 60;
-            return bikeCost;
+                BikeCost = 60;
+
+            return BikeCost;
         }
 
         private List<int> SaveAccessoiresToList()
@@ -62,9 +64,11 @@ namespace VanDerBinckesBakfietsen
                 if (AccessoiresList.GetItemChecked(i))
                 {
                     indexCheckedItems.Add(i);
+                    CalculateAccessoiresCost(indexCheckedItems);
                 }
             }
 
+            CostsPerDayLabel.Text = $"Kosten per dag {AccessoiresCost} ";
             return indexCheckedItems;
         }
 
@@ -84,40 +88,53 @@ namespace VanDerBinckesBakfietsen
                     costExtras += 20;
             }
 
+
             return costExtras;
+
+
+        }
+        private void StartDatePicker_ValueChanged(object sender, EventArgs e)
+        {
+            StartDatePicker.MinDate = DateTime.Now.Date;
+        }
+
+        private void ReturnDatePicker_ValueChanged_1(object sender, EventArgs e)
+        {
+            ReturnDatePicker.MinDate = DateTime.Now.Date.AddDays(1);
+        }
+
+        private void ButtonConfirmDays_Click(object sender, EventArgs e)
+        {
+            CalculateTotalNumberOfRentDays();
         }
 
 
-        private void ReturnDatePicker_ValueChanged_1(object sender, EventArgs e)
+        private void CalculateTotalNumberOfRentDays()
         {
             DateTime startDate = StartDatePicker.Value;
             DateTime returnDate = ReturnDatePicker.Value;
 
- 
             TimeSpan difference = returnDate - startDate;
 
-            int totalDays = (int)Math.Ceiling(difference.TotalDays);
+            RentDays = (int)Math.Ceiling(difference.TotalDays);
 
-            if (totalDays <= 0)
+            if (RentDays <= 0)
             {
-                MessageBox.Show("LET OP: is negatief");
-                ButtonCalculateCost.Enabled = false;
+                MessageBox.Show("Error, foutieve invoer");
             }
             else
             {
-                totalDaysLabel.Text = $"Totaal aantal dagen {totalDays}";
+                totalDaysLabel.Text = $"Totaal aantal dagen {RentDays}";
                 ButtonCalculateCost.Enabled = true;
             }
-
-            RentDays = totalDays;
-
         }
 
-        private void StartDatePicker_ValueChanged(object sender, EventArgs e)
+
+        private void AccessoiresList_SelectedIndexChanged(object sender, EventArgs e)
         {
-            StartDatePicker.MinDate = DateTime.Now.Date;
-
+            CostsPerDayLabel.Text = $"Kosten per dag € {BikeCost + AccessoiresCost}";
         }
+
     }
 
     public class BakfietsModel()

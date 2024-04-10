@@ -41,6 +41,7 @@
             ReturnDatePicker = new DateTimePicker();
             totalDaysLabel = new Label();
             CostsPerDayLabel = new Label();
+            ButtonConfirmDays = new Button();
             SuspendLayout();
             // 
             // BikeLabel
@@ -96,6 +97,7 @@
             AccessoiresList.Size = new Size(190, 100);
             AccessoiresList.TabIndex = 3;
             AccessoiresList.ThreeDCheckBoxes = true;
+            AccessoiresList.SelectedIndexChanged += AccessoiresList_SelectedIndexChanged;
             // 
             // ChoiceOfBikes
             // 
@@ -177,11 +179,23 @@
             CostsPerDayLabel.TabIndex = 12;
             CostsPerDayLabel.Text = "Kosten per dag";
             // 
+            // ButtonConfirmDays
+            // 
+            ButtonConfirmDays.Font = new Font("Segoe UI", 12F);
+            ButtonConfirmDays.Location = new Point(542, 207);
+            ButtonConfirmDays.Name = "ButtonConfirmDays";
+            ButtonConfirmDays.Size = new Size(86, 32);
+            ButtonConfirmDays.TabIndex = 13;
+            ButtonConfirmDays.Text = "Bevestig";
+            ButtonConfirmDays.UseVisualStyleBackColor = true;
+            ButtonConfirmDays.Click += ButtonConfirmDays_Click;
+            // 
             // BakfietsVerhuur
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(673, 479);
+            Controls.Add(ButtonConfirmDays);
             Controls.Add(CostsPerDayLabel);
             Controls.Add(totalDaysLabel);
             Controls.Add(ReturnDatePicker);
@@ -216,5 +230,6 @@
         private DateTimePicker ReturnDatePicker;
         private Label totalDaysLabel;
         private Label CostsPerDayLabel;
+        private Button ButtonConfirmDays;
     }
 }
