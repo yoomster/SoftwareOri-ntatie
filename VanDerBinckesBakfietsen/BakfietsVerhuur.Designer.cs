@@ -109,6 +109,7 @@
             ChoiceOfBikes.Size = new Size(252, 29);
             ChoiceOfBikes.TabIndex = 1;
             ChoiceOfBikes.Text = "Urban Arrow 4 pers. € 20";
+            ChoiceOfBikes.SelectedIndexChanged += ChoiceOfBikes_SelectedIndexChanged;
             // 
             // StartDatePicker
             // 

@@ -20,58 +20,56 @@ namespace VanDerBinckesBakfietsen
         //BakfietsModel urbanArrow1 = new BakfietsModel { Name = "Urban Arrow 01" };
 
         public int RentDays { get; set; }
-        public int BikeCost { get; set; }
-        public int AccessoiresCost { get; set; }
-        public int DayCost { get; set; }
+        public BikeOrder MyBikeOrder { get; set; } = new();
         public List<int> IndexAccessoiresAdded { get; set; } = new List<int>();
 
-
+        
 
         private void ButtonCalculateCost_Click(object sender, EventArgs e)
         {
             //List<int> IndexAddedAccessoires = SaveAccessoiresToList();
-            int totalCost = (BikeCost * RentDays) + (AccessoiresCost * RentDays);
+            int totalCost = (MyBikeOrder.ReadBikeCost() * RentDays) + (MyBikeOrder.DailyAccessoryCost * RentDays);
 
             TotalCostLabel.Text = $"Totale kosten bakfiets en bovenstaande accessoire(s) zijn € {totalCost}";
         }
         private void CalculateTotalDayCost()
         {
-            CalculateBikeCost();
-
-            DayCost = BikeCost += AccessoiresCost;
+            CostsPerDayLabel.Text = MyBikeOrder.PrintDailyCostTotal();
         }
-        private int CalculateBikeCost()
+
+        private void ChoiceOfBikes_SelectedIndexChanged(object sender, EventArgs e)
         {
-            BikeCost = 0;
             string bikeChoice = ChoiceOfBikes.Text;
 
             if (bikeChoice == "Urban Arrow 4 pers. € 20")
-                BikeCost = 20;
+                MyBikeOrder.SetBikeCost(-0);
             else if (bikeChoice == "Urban Arrow 6 pers. € 30")
-                BikeCost = 30;
+                MyBikeOrder.SetBikeCost(30);
             else if (bikeChoice == "Urban Arrow 4 pers. E-Bike € 40")
-                BikeCost = 40;
+                MyBikeOrder.SetBikeCost(40);
             else if (bikeChoice == "Urban Arrow 6 pers. E-Bike € 60")
-                BikeCost = 60;
-            return BikeCost;
+                MyBikeOrder.SetBikeCost(60);
+            CalculateTotalDayCost();
         }
 
 
         private void CalculateAccessoiresCost(List<int> indexCheckedItems)
         {
-            AccessoiresCost = 0;
+            var accessoiresCost = 0;
 
             foreach (var index in indexCheckedItems)
             {
                 if (index == 0)
-                    AccessoiresCost += 5;
+                    accessoiresCost += 5;
                 else if (index == 1)
-                    AccessoiresCost += 10;
+                    accessoiresCost += 10;
                 else if (index == 2)
-                    AccessoiresCost += 15;
+                    accessoiresCost += 15;
                 else if (index == 3)
-                    AccessoiresCost += 20;
+                    accessoiresCost += 20;
             }
+
+            MyBikeOrder.SetDailyAccessoryCost(accessoiresCost);
         }
         private void AccessoiresList_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -88,7 +86,7 @@ namespace VanDerBinckesBakfietsen
             CalculateTotalDayCost();
 
 
-            CostsPerDayLabel.Text = $"Kosten per dag € BikeCost: {BikeCost}  ass:{AccessoiresCost} daycost: {DayCost}"; //doesnt show bike cost
+            
         }
 
 
@@ -128,6 +126,8 @@ namespace VanDerBinckesBakfietsen
                 ButtonCalculateCost.Enabled = true;
             }
         }
+
+        
     }
 
     public class BakfietsModel()
@@ -150,3 +150,35 @@ namespace VanDerBinckesBakfietsen
     }
 }
 
+public class BikeOrder
+{
+    private int DailyBikeCost { get; set; }
+    public int DailyAccessoryCost { get; set; }
+    private int RentDayCount { get; set; }
+
+
+    public int ReadBikeCost() 
+    {
+        return DailyBikeCost;
+    }
+
+    public void SetBikeCost(int bikeCost)
+    {
+        
+        DailyBikeCost = bikeCost;
+    }
+
+    public void SetDailyAccessoryCost(int cost)
+    {
+        DailyAccessoryCost = cost;
+    }
+
+    public int CalculateDailyTotal() => DailyBikeCost + DailyAccessoryCost;
+    
+
+    public string PrintDailyCostTotal()
+    {
+        return $"Kosten per dag € BikeCost: {DailyBikeCost}  ass:{DailyAccessoryCost} daycost: {DailyBikeCost + DailyAccessoryCost}";
+    }
+
+}
