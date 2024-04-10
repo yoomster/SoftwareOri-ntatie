@@ -29,11 +29,9 @@
         private void InitializeComponent()
         {
             BikeLabel = new Label();
-            RentDaysLabel = new Label();
             ExtrasLabel = new Label();
             TotalCostLabel = new Label();
             ButtonCalculateCost = new Button();
-            RentalDaysNumUpDown = new NumericUpDown();
             AccessoiresList = new CheckedListBox();
             ChoiceOfBikes = new ComboBox();
             StartDatePicker = new DateTimePicker();
@@ -43,7 +41,6 @@
             ReturnDatePicker = new DateTimePicker();
             totalDaysLabel = new Label();
             CostsPerDayLabel = new Label();
-            ((System.ComponentModel.ISupportInitialize)RentalDaysNumUpDown).BeginInit();
             SuspendLayout();
             // 
             // BikeLabel
@@ -55,16 +52,6 @@
             BikeLabel.Size = new Size(226, 21);
             BikeLabel.TabIndex = 0;
             BikeLabel.Text = "Selecteer uw gewenste bakfiets";
-            // 
-            // RentDaysLabel
-            // 
-            RentDaysLabel.AutoSize = true;
-            RentDaysLabel.Font = new Font("Segoe UI", 12F);
-            RentDaysLabel.Location = new Point(375, 282);
-            RentDaysLabel.Name = "RentDaysLabel";
-            RentDaysLabel.Size = new Size(104, 21);
-            RentDaysLabel.TabIndex = 1;
-            RentDaysLabel.Text = "Aantal dagen:";
             // 
             // ExtrasLabel
             // 
@@ -80,7 +67,7 @@
             // 
             TotalCostLabel.AutoSize = true;
             TotalCostLabel.Font = new Font("Segoe UI", 12F);
-            TotalCostLabel.Location = new Point(56, 392);
+            TotalCostLabel.Location = new Point(56, 403);
             TotalCostLabel.Name = "TotalCostLabel";
             TotalCostLabel.Size = new Size(271, 21);
             TotalCostLabel.TabIndex = 3;
@@ -90,7 +77,7 @@
             // 
             ButtonCalculateCost.Enabled = false;
             ButtonCalculateCost.Font = new Font("Segoe UI", 12F);
-            ButtonCalculateCost.Location = new Point(257, 346);
+            ButtonCalculateCost.Location = new Point(226, 333);
             ButtonCalculateCost.Name = "ButtonCalculateCost";
             ButtonCalculateCost.Size = new Size(190, 43);
             ButtonCalculateCost.TabIndex = 4;
@@ -98,22 +85,12 @@
             ButtonCalculateCost.UseVisualStyleBackColor = true;
             ButtonCalculateCost.Click += ButtonCalculateCost_Click;
             // 
-            // RentalDaysNumUpDown
-            // 
-            RentalDaysNumUpDown.Font = new Font("Segoe UI", 12F);
-            RentalDaysNumUpDown.Location = new Point(479, 282);
-            RentalDaysNumUpDown.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
-            RentalDaysNumUpDown.Name = "RentalDaysNumUpDown";
-            RentalDaysNumUpDown.Size = new Size(86, 29);
-            RentalDaysNumUpDown.TabIndex = 2;
-            RentalDaysNumUpDown.Value = new decimal(new int[] { 1, 0, 0, 0 });
-            // 
             // AccessoiresList
             // 
             AccessoiresList.CheckOnClick = true;
             AccessoiresList.Font = new Font("Segoe UI", 12F);
             AccessoiresList.FormattingEnabled = true;
-            AccessoiresList.Items.AddRange(new object[] { "Telefoonhouder 5", "Helm 10", "Regenhoes 15", "Babystoel 20" });
+            AccessoiresList.Items.AddRange(new object[] { "Telefoonhouder € 5", "Helm € 10", "Regenhoes € 15", "Babystoel € 20" });
             AccessoiresList.Location = new Point(56, 139);
             AccessoiresList.Name = "AccessoiresList";
             AccessoiresList.Size = new Size(190, 100);
@@ -127,7 +104,7 @@
             ChoiceOfBikes.Items.AddRange(new object[] { "Urban Arrow 4 pers. € 20", "Urban Arrow 6 pers. € 30", "Urban Arrow 4 pers. E-Bike € 40", "Urban Arrow 6 pers. E-Bike € 60" });
             ChoiceOfBikes.Location = new Point(56, 59);
             ChoiceOfBikes.Name = "ChoiceOfBikes";
-            ChoiceOfBikes.Size = new Size(202, 29);
+            ChoiceOfBikes.Size = new Size(252, 29);
             ChoiceOfBikes.TabIndex = 1;
             ChoiceOfBikes.Text = "Urban Arrow 4 pers. € 20";
             // 
@@ -212,15 +189,12 @@
             Controls.Add(StartDatePicker);
             Controls.Add(ChoiceOfBikes);
             Controls.Add(AccessoiresList);
-            Controls.Add(RentalDaysNumUpDown);
             Controls.Add(ButtonCalculateCost);
             Controls.Add(TotalCostLabel);
             Controls.Add(ExtrasLabel);
-            Controls.Add(RentDaysLabel);
             Controls.Add(BikeLabel);
             Name = "BakfietsVerhuur";
             Text = "Van der Binckes bakfiets verhuur";
-            ((System.ComponentModel.ISupportInitialize)RentalDaysNumUpDown).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -228,11 +202,9 @@
         #endregion
 
         private Label BikeLabel;
-        private Label RentDaysLabel;
         private Label ExtrasLabel;
         private Label TotalCostLabel;
         private Button ButtonCalculateCost;
-        private NumericUpDown RentalDaysNumUpDown;
         private CheckedListBox AccessoiresList;
         private ComboBox ChoiceOfBikes;
         private DateTimePicker StartDatePicker;

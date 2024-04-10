@@ -20,17 +20,19 @@ namespace VanDerBinckesBakfietsen
 
         BakfietsModel urbanArrow1 = new BakfietsModel { Name = "Urban Arrow 01" };
 
+        public int RentDays { get; set; }
+
+
         private void ButtonCalculateCost_Click(object sender, EventArgs e)
         {
-            int numberOfdays = (int)RentalDaysNumUpDown.Value;
             int costBike = ChosenBikeCost();
             List<int> IndexAddedAccessoires = SaveAccessoiresToList();
             int costAccessoires = CalculateAccessoiresCost(IndexAddedAccessoires);
-            int totalCost = (costBike * numberOfdays) + (costAccessoires * numberOfdays);
+            int totalCost = (costBike * RentDays) + (costAccessoires * RentDays);
 
-            CostsPerDayLabel.Text = $"Kosten per dag {costBike+ costAccessoires}";
+            CostsPerDayLabel.Text = $"Kosten per dag € {costBike + costAccessoires}";
 
-            TotalCostLabel.Text = $"Totale kosten {ChoiceOfBikes.Text} (bakfiets) en {IndexAddedAccessoires.}accessoire(s) zijn € {totalCost}";
+            TotalCostLabel.Text = $"Totale kosten bakfiets en bovenstaande accessoire(s) zijn € {totalCost}";
 
         }
 
@@ -90,7 +92,7 @@ namespace VanDerBinckesBakfietsen
             TimeSpan difference = ReturnDatePicker.Value - StartDatePicker.Value;
 
             int totalDays = (int)Math.Ceiling(difference.TotalDays);
-
+            RentDays = totalDays;
             if (totalDays <= 0)
             {
                 MessageBox.Show("LET OP: is negatief");
@@ -102,6 +104,8 @@ namespace VanDerBinckesBakfietsen
                 ButtonCalculateCost.Enabled = true;
             }
         }
+
+
     }
 
     public class BakfietsModel()
