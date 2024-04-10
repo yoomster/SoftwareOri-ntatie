@@ -17,30 +17,32 @@ namespace VanDerBinckesBakfietsen
             InitializeComponent();
         }
         //List<string> accessoires = new List<string> ;
-
-        BakfietsModel urbanArrow1 = new BakfietsModel { Name = "Urban Arrow 01" };
+        //BakfietsModel urbanArrow1 = new BakfietsModel { Name = "Urban Arrow 01" };
 
         public int RentDays { get; set; }
         public int BikeCost { get; set; }
         public int AccessoiresCost { get; set; }
-
+        public int DayCost { get; set; }
+        public List<int> IndexAccessoiresAdded { get; set; } = new List<int>();
 
 
 
         private void ButtonCalculateCost_Click(object sender, EventArgs e)
         {
-            BikeCost = ChosenBikeCost();
-            List<int> IndexAddedAccessoires = SaveAccessoiresToList();
-            AccessoiresCost = CalculateAccessoiresCost(IndexAddedAccessoires);
+            //List<int> IndexAddedAccessoires = SaveAccessoiresToList();
             int totalCost = (BikeCost * RentDays) + (AccessoiresCost * RentDays);
 
-
             TotalCostLabel.Text = $"Totale kosten bakfiets en bovenstaande accessoire(s) zijn € {totalCost}";
-
         }
-
-        private int ChosenBikeCost()
+        private void CalculateTotalDayCost()
         {
+            CalculateBikeCost();
+
+            DayCost = BikeCost += AccessoiresCost;
+        }
+        private int CalculateBikeCost()
+        {
+            BikeCost = 0;
             string bikeChoice = ChoiceOfBikes.Text;
 
             if (bikeChoice == "Urban Arrow 4 pers. € 20")
@@ -51,48 +53,47 @@ namespace VanDerBinckesBakfietsen
                 BikeCost = 40;
             else if (bikeChoice == "Urban Arrow 6 pers. E-Bike € 60")
                 BikeCost = 60;
-
             return BikeCost;
         }
 
-        private List<int> SaveAccessoiresToList()
+
+        private void CalculateAccessoiresCost(List<int> indexCheckedItems)
         {
-            List<int> indexCheckedItems = new List<int>();
+            AccessoiresCost = 0;
+
+            foreach (var index in indexCheckedItems)
+            {
+                if (index == 0)
+                    AccessoiresCost += 5;
+                else if (index == 1)
+                    AccessoiresCost += 10;
+                else if (index == 2)
+                    AccessoiresCost += 15;
+                else if (index == 3)
+                    AccessoiresCost += 20;
+            }
+        }
+        private void AccessoiresList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            IndexAccessoiresAdded.Clear();
 
             for (int i = 0; i < AccessoiresList.Items.Count; i++)
             {
                 if (AccessoiresList.GetItemChecked(i))
                 {
-                    indexCheckedItems.Add(i);
-                    CalculateAccessoiresCost(indexCheckedItems);
+                    IndexAccessoiresAdded.Add(i);
                 }
             }
+            CalculateAccessoiresCost(IndexAccessoiresAdded);
+            CalculateTotalDayCost();
 
-            CostsPerDayLabel.Text = $"Kosten per dag {AccessoiresCost} ";
-            return indexCheckedItems;
+
+            CostsPerDayLabel.Text = $"Kosten per dag € BikeCost: {BikeCost}  ass:{AccessoiresCost} daycost: {DayCost}"; //doesnt show bike cost
         }
 
-        private static int CalculateAccessoiresCost(List<int> indexCheckedItems)
-        {
-            int costExtras = 0;
-
-            foreach (var item in indexCheckedItems)
-            {
-                if (item == 0)
-                    costExtras += 5;
-                else if (item == 1)
-                    costExtras += 10;
-                else if (item == 2)
-                    costExtras += 15;
-                else if (item == 3)
-                    costExtras += 20;
-            }
 
 
-            return costExtras;
 
-
-        }
         private void StartDatePicker_ValueChanged(object sender, EventArgs e)
         {
             StartDatePicker.MinDate = DateTime.Now.Date;
@@ -107,7 +108,6 @@ namespace VanDerBinckesBakfietsen
         {
             CalculateTotalNumberOfRentDays();
         }
-
 
         private void CalculateTotalNumberOfRentDays()
         {
@@ -128,13 +128,6 @@ namespace VanDerBinckesBakfietsen
                 ButtonCalculateCost.Enabled = true;
             }
         }
-
-
-        private void AccessoiresList_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            CostsPerDayLabel.Text = $"Kosten per dag € {BikeCost + AccessoiresCost}";
-        }
-
     }
 
     public class BakfietsModel()

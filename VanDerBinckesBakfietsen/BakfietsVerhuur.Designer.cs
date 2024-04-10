@@ -175,9 +175,9 @@
             CostsPerDayLabel.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             CostsPerDayLabel.Location = new Point(56, 268);
             CostsPerDayLabel.Name = "CostsPerDayLabel";
-            CostsPerDayLabel.Size = new Size(114, 21);
+            CostsPerDayLabel.Size = new Size(164, 21);
             CostsPerDayLabel.TabIndex = 12;
-            CostsPerDayLabel.Text = "Kosten per dag";
+            CostsPerDayLabel.Text = "Kosten per dag is € 20";
             // 
             // ButtonConfirmDays
             // 
