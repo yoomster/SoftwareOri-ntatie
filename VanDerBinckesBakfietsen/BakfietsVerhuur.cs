@@ -23,6 +23,7 @@ namespace VanDerBinckesBakfietsen
         public int RentDays { get; set; }
 
 
+
         private void ButtonCalculateCost_Click(object sender, EventArgs e)
         {
             int costBike = ChosenBikeCost();
@@ -89,10 +90,14 @@ namespace VanDerBinckesBakfietsen
 
         private void ReturnDatePicker_ValueChanged_1(object sender, EventArgs e)
         {
-            TimeSpan difference = ReturnDatePicker.Value - StartDatePicker.Value;
+            DateTime startDate = StartDatePicker.Value;
+            DateTime returnDate = ReturnDatePicker.Value;
+
+ 
+            TimeSpan difference = returnDate - startDate;
 
             int totalDays = (int)Math.Ceiling(difference.TotalDays);
-            RentDays = totalDays;
+
             if (totalDays <= 0)
             {
                 MessageBox.Show("LET OP: is negatief");
@@ -103,9 +108,16 @@ namespace VanDerBinckesBakfietsen
                 totalDaysLabel.Text = $"Totaal aantal dagen {totalDays}";
                 ButtonCalculateCost.Enabled = true;
             }
+
+            RentDays = totalDays;
+
         }
 
+        private void StartDatePicker_ValueChanged(object sender, EventArgs e)
+        {
+            StartDatePicker.MinDate = DateTime.Now.Date;
 
+        }
     }
 
     public class BakfietsModel()

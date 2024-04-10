@@ -112,9 +112,11 @@
             // 
             StartDatePicker.Font = new Font("Segoe UI", 12F);
             StartDatePicker.Location = new Point(375, 88);
+            StartDatePicker.MinDate = new DateTime(2024, 3, 28, 0, 0, 0, 0);
             StartDatePicker.Name = "StartDatePicker";
             StartDatePicker.Size = new Size(253, 29);
             StartDatePicker.TabIndex = 5;
+            StartDatePicker.ValueChanged += StartDatePicker_ValueChanged;
             // 
             // RentDateLlabel
             // 
