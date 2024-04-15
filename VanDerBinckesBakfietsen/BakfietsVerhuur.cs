@@ -35,38 +35,38 @@ namespace VanDerBinckesBakfietsen
             CalculateTotalDayCost();
         }
 
-        private void AccessoiresList_SelectedIndexChanged(object sender, EventArgs e)
+        private void ExtrasList_SelectedIndexChanged(object sender, EventArgs e)
         {
             IndexAddedExtras.Clear();
 
-            for (int i = 0; i < AccessoiresList.Items.Count; i++)
+            for (int i = 0; i < ExtrasList.Items.Count; i++)
             {
-                if (AccessoiresList.GetItemChecked(i))
+                if (ExtrasList.GetItemChecked(i))
                 {
                     IndexAddedExtras.Add(i);
                 }
             }
-            CalculateAccessoiresCost();
+            CalculateExtrasCost();
             CalculateTotalDayCost();
         }
 
-        private void CalculateAccessoiresCost()
+        private void CalculateExtrasCost()
         {
-            int accessoiresCost = 0;
+            int extrasCost = 0;
 
             foreach (var index in IndexAddedExtras)
             {
                 if (index == 0)
-                    accessoiresCost += 5;
+                    extrasCost += 5;
                 else if (index == 1)
-                    accessoiresCost += 10;
+                    extrasCost += 10;
                 else if (index == 2)
-                    accessoiresCost += 15;
+                    extrasCost += 15;
                 else if (index == 3)
-                    accessoiresCost += 20;
+                    extrasCost += 20;
             }
 
-            MyBikeOrder.SetDailyExtrasCost(accessoiresCost);
+            MyBikeOrder.SetDailyExtrasCost(extrasCost);
         }
 
         private void CalculateTotalDayCost()
