@@ -18,7 +18,7 @@ namespace VanDerBinckesBakfietsen
         }
 
         public BikeOrder MyBikeOrder { get; set; } = new();
-        public List<int> IndexAccessoiresAdded { get; set; } = new List<int>();
+        public List<int> IndexAddedExtras { get; set; } = new List<int>();
 
         private void ChoiceOfBikes_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -35,12 +35,26 @@ namespace VanDerBinckesBakfietsen
             CalculateTotalDayCost();
         }
 
-
-        private void CalculateAccessoiresCost(List<int> indexCheckedItems)
+        private void AccessoiresList_SelectedIndexChanged(object sender, EventArgs e)
         {
-            var accessoiresCost = 0;
+            IndexAddedExtras.Clear();
 
-            foreach (var index in indexCheckedItems)
+            for (int i = 0; i < AccessoiresList.Items.Count; i++)
+            {
+                if (AccessoiresList.GetItemChecked(i))
+                {
+                    IndexAddedExtras.Add(i);
+                }
+            }
+            CalculateAccessoiresCost();
+            CalculateTotalDayCost();
+        }
+
+        private void CalculateAccessoiresCost()
+        {
+            int accessoiresCost = 0;
+
+            foreach (var index in IndexAddedExtras)
             {
                 if (index == 0)
                     accessoiresCost += 5;
@@ -52,21 +66,7 @@ namespace VanDerBinckesBakfietsen
                     accessoiresCost += 20;
             }
 
-            MyBikeOrder.SetDailyAccessoryCost(accessoiresCost);
-        }
-        private void AccessoiresList_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            IndexAccessoiresAdded.Clear();
-
-            for (int i = 0; i < AccessoiresList.Items.Count; i++)
-            {
-                if (AccessoiresList.GetItemChecked(i))
-                {
-                    IndexAccessoiresAdded.Add(i);
-                }
-            }
-            CalculateAccessoiresCost(IndexAccessoiresAdded);
-            CalculateTotalDayCost();
+            MyBikeOrder.SetDailyExtrasCost(accessoiresCost);
         }
 
         private void CalculateTotalDayCost()
@@ -78,19 +78,12 @@ namespace VanDerBinckesBakfietsen
         {
             StartDatePicker.MinDate = DateTime.Now.Date;
 
-            CalculateTotalNumberOfRentDays();
+            ReturnDatePicker.MinDate = StartDatePicker.Value.AddDays(1);
 
+            CalculateTotalNumberOfRentDays();
         }
 
         private void ReturnDatePicker_ValueChanged_1(object sender, EventArgs e)
-        {
-            ReturnDatePicker.MinDate = DateTime.Now.Date.AddDays(1);
-
-            CalculateTotalNumberOfRentDays();
-
-        }
-
-        private void ButtonConfirmDays_Click(object sender, EventArgs e)
         {
             CalculateTotalNumberOfRentDays();
         }
@@ -109,7 +102,6 @@ namespace VanDerBinckesBakfietsen
             {
                 MessageBox.Show("Error, foutieve invoer");
                 ButtonCalculateCost.Enabled = false;
-
             }
             else
             {
@@ -119,14 +111,7 @@ namespace VanDerBinckesBakfietsen
         }
         private void ButtonCalculateTotalCost_Click(object sender, EventArgs e)
         {
-            int totalCost = (MyBikeOrder.ReadBikeCost() * MyBikeOrder.RentDayCount) + (MyBikeOrder.DailyAccessoryCost * MyBikeOrder.RentDayCount);
-
             TotalCostLabel.Text = MyBikeOrder.PrintTotalCost();
-
-            totalDaysLabel.Text = MyBikeOrder.PrintTotalRentDays();
-
-            CalculateTotalDayCost();
-
         }
 
     }
@@ -135,31 +120,34 @@ namespace VanDerBinckesBakfietsen
 public class BikeOrder
 {
     private int DailyBikeCost { get; set; } = 20;
-    public int DailyAccessoryCost { get; set; }
+    private int DailyExtrasCost { get; set; }
     public int RentDayCount { get; set; }
-
-
-    public int ReadBikeCost() 
-    {
-        return DailyBikeCost;
-    }
 
     public void SetBikeCost(int bikeCost)
     {
         DailyBikeCost = bikeCost;
     }
-
-    public void SetDailyAccessoryCost(int cost)
+    public int ReadBikeCost()
     {
-        DailyAccessoryCost = cost;
+        return DailyBikeCost;
     }
 
-    public int CalculateDailyTotal() => DailyBikeCost + DailyAccessoryCost;
+    public void SetDailyExtrasCost(int cost)
+    {
+        DailyExtrasCost = cost;
+    }
+
+    public int ReadExtrasCost()
+    { 
+        return DailyExtrasCost; 
+    }
+
+    public int CalculateDailyTotal() => DailyBikeCost + DailyExtrasCost;
     
 
     public string PrintDailyCostTotal()
     {
-        return $"Kosten per dag zijn € {DailyBikeCost + DailyAccessoryCost}";
+        return $"Kosten per dag zijn € {DailyBikeCost + DailyExtrasCost}";
     }
 
     public string PrintTotalCost()
