@@ -34,6 +34,7 @@
             this.CupSizeTextBox = new System.Windows.Forms.TextBox();
             this.ButtonFillBucket = new System.Windows.Forms.Button();
             this.BucketProgressBar = new System.Windows.Forms.ProgressBar();
+            this.ButtonReset = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // BucketSizeTextBox
@@ -85,18 +86,30 @@
             // 
             // BucketProgressBar
             // 
+            this.BucketProgressBar.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.BucketProgressBar.Location = new System.Drawing.Point(25, 28);
             this.BucketProgressBar.Name = "BucketProgressBar";
             this.BucketProgressBar.Size = new System.Drawing.Size(158, 286);
+            this.BucketProgressBar.Step = 5;
             this.BucketProgressBar.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
             this.BucketProgressBar.TabIndex = 5;
-            this.BucketProgressBar.Value = 60;
+            // 
+            // ButtonReset
+            // 
+            this.ButtonReset.Location = new System.Drawing.Point(576, 297);
+            this.ButtonReset.Name = "ButtonReset";
+            this.ButtonReset.Size = new System.Drawing.Size(76, 28);
+            this.ButtonReset.TabIndex = 6;
+            this.ButtonReset.Text = "Reset";
+            this.ButtonReset.UseVisualStyleBackColor = true;
+            this.ButtonReset.Click += new System.EventHandler(this.ButtonReset_Click);
             // 
             // EmmerVullen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(673, 337);
+            this.Controls.Add(this.ButtonReset);
             this.Controls.Add(this.BucketProgressBar);
             this.Controls.Add(this.ButtonFillBucket);
             this.Controls.Add(this.CupSizeLabel);
@@ -118,5 +131,6 @@
         private System.Windows.Forms.TextBox CupSizeTextBox;
         private System.Windows.Forms.Button ButtonFillBucket;
         private System.Windows.Forms.ProgressBar BucketProgressBar;
+        private System.Windows.Forms.Button ButtonReset;
     }
 }
