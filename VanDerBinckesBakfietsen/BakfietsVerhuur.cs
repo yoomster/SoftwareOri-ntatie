@@ -16,33 +16,16 @@ namespace VanDerBinckesBakfietsen
         {
             InitializeComponent();
         }
-        //List<string> accessoires = new List<string> ;
-        //BakfietsModel urbanArrow1 = new BakfietsModel { Name = "Urban Arrow 01" };
 
-        public int RentDays { get; set; }
         public BikeOrder MyBikeOrder { get; set; } = new();
         public List<int> IndexAccessoiresAdded { get; set; } = new List<int>();
-
-        
-
-        private void ButtonCalculateCost_Click(object sender, EventArgs e)
-        {
-            //List<int> IndexAddedAccessoires = SaveAccessoiresToList();
-            int totalCost = (MyBikeOrder.ReadBikeCost() * RentDays) + (MyBikeOrder.DailyAccessoryCost * RentDays);
-
-            TotalCostLabel.Text = $"Totale kosten bakfiets en bovenstaande accessoire(s) zijn € {totalCost}";
-        }
-        private void CalculateTotalDayCost()
-        {
-            CostsPerDayLabel.Text = MyBikeOrder.PrintDailyCostTotal();
-        }
 
         private void ChoiceOfBikes_SelectedIndexChanged(object sender, EventArgs e)
         {
             string bikeChoice = ChoiceOfBikes.Text;
 
             if (bikeChoice == "Urban Arrow 4 pers. € 20")
-                MyBikeOrder.SetBikeCost(-0);
+                MyBikeOrder.SetBikeCost(20);
             else if (bikeChoice == "Urban Arrow 6 pers. € 30")
                 MyBikeOrder.SetBikeCost(30);
             else if (bikeChoice == "Urban Arrow 4 pers. E-Bike € 40")
@@ -84,22 +67,27 @@ namespace VanDerBinckesBakfietsen
             }
             CalculateAccessoiresCost(IndexAccessoiresAdded);
             CalculateTotalDayCost();
-
-
-            
         }
 
-
-
+        private void CalculateTotalDayCost()
+        {
+            CostsPerDayLabel.Text = MyBikeOrder.PrintDailyCostTotal();
+        }
 
         private void StartDatePicker_ValueChanged(object sender, EventArgs e)
         {
             StartDatePicker.MinDate = DateTime.Now.Date;
+
+            CalculateTotalNumberOfRentDays();
+
         }
 
         private void ReturnDatePicker_ValueChanged_1(object sender, EventArgs e)
         {
             ReturnDatePicker.MinDate = DateTime.Now.Date.AddDays(1);
+
+            CalculateTotalNumberOfRentDays();
+
         }
 
         private void ButtonConfirmDays_Click(object sender, EventArgs e)
@@ -109,52 +97,46 @@ namespace VanDerBinckesBakfietsen
 
         private void CalculateTotalNumberOfRentDays()
         {
+            MyBikeOrder.RentDayCount = 0;
             DateTime startDate = StartDatePicker.Value;
             DateTime returnDate = ReturnDatePicker.Value;
 
             TimeSpan difference = returnDate - startDate;
 
-            RentDays = (int)Math.Ceiling(difference.TotalDays);
-
-            if (RentDays <= 0)
+            MyBikeOrder.RentDayCount = (int)Math.Ceiling(difference.TotalDays);
+      
+            if (MyBikeOrder.RentDayCount <= 0)
             {
                 MessageBox.Show("Error, foutieve invoer");
+                ButtonCalculateCost.Enabled = false;
+
             }
             else
             {
-                totalDaysLabel.Text = $"Totaal aantal dagen {RentDays}";
+                totalDaysLabel.Text = $"Totaal aantal dagen {MyBikeOrder.RentDayCount}";
                 ButtonCalculateCost.Enabled = true;
             }
         }
+        private void ButtonCalculateTotalCost_Click(object sender, EventArgs e)
+        {
+            int totalCost = (MyBikeOrder.ReadBikeCost() * MyBikeOrder.RentDayCount) + (MyBikeOrder.DailyAccessoryCost * MyBikeOrder.RentDayCount);
 
-        
-    }
+            TotalCostLabel.Text = MyBikeOrder.PrintTotalCost();
 
-    public class BakfietsModel()
-    {
-        public string Name { get; set; }
-        public int NrOfPassengers { get; set; }
-        public int Price { get; set; }
-        public FietsAccessoiresModel Accessoires { get; set; }
-    }
+            totalDaysLabel.Text = MyBikeOrder.PrintTotalRentDays();
 
-    public class FietsAccessoiresModel()
-    {
-        public string Name { get; set; }
-        public int Price { get; set; }
+            CalculateTotalDayCost();
 
-        //Telefoonhouder 5
-        //Helm 10
-        //Regenhoes 15
-        //Babystoel 20
+        }
+
     }
 }
 
 public class BikeOrder
 {
-    private int DailyBikeCost { get; set; }
+    private int DailyBikeCost { get; set; } = 20;
     public int DailyAccessoryCost { get; set; }
-    private int RentDayCount { get; set; }
+    public int RentDayCount { get; set; }
 
 
     public int ReadBikeCost() 
@@ -164,7 +146,6 @@ public class BikeOrder
 
     public void SetBikeCost(int bikeCost)
     {
-        
         DailyBikeCost = bikeCost;
     }
 
@@ -178,7 +159,17 @@ public class BikeOrder
 
     public string PrintDailyCostTotal()
     {
-        return $"Kosten per dag € BikeCost: {DailyBikeCost}  ass:{DailyAccessoryCost} daycost: {DailyBikeCost + DailyAccessoryCost}";
+        return $"Kosten per dag zijn € {DailyBikeCost + DailyAccessoryCost}";
+    }
+
+    public string PrintTotalCost()
+    {
+        return $"Totale kosten zijn € {CalculateDailyTotal() * RentDayCount}"; ;
+    }
+
+    public string PrintTotalRentDays()
+    {
+        return $"Totaal aantal dagen {RentDayCount}";
     }
 
 }

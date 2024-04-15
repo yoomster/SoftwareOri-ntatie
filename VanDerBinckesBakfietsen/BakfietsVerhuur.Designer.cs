@@ -41,14 +41,13 @@
             ReturnDatePicker = new DateTimePicker();
             totalDaysLabel = new Label();
             CostsPerDayLabel = new Label();
-            ButtonConfirmDays = new Button();
             SuspendLayout();
             // 
             // BikeLabel
             // 
             BikeLabel.AutoSize = true;
             BikeLabel.Font = new Font("Segoe UI", 12F);
-            BikeLabel.Location = new Point(56, 26);
+            BikeLabel.Location = new Point(56, 31);
             BikeLabel.Name = "BikeLabel";
             BikeLabel.Size = new Size(226, 21);
             BikeLabel.TabIndex = 0;
@@ -58,7 +57,7 @@
             // 
             ExtrasLabel.AutoSize = true;
             ExtrasLabel.Font = new Font("Segoe UI", 12F);
-            ExtrasLabel.Location = new Point(56, 106);
+            ExtrasLabel.Location = new Point(56, 118);
             ExtrasLabel.Name = "ExtrasLabel";
             ExtrasLabel.Size = new Size(216, 21);
             ExtrasLabel.TabIndex = 2;
@@ -68,23 +67,23 @@
             // 
             TotalCostLabel.AutoSize = true;
             TotalCostLabel.Font = new Font("Segoe UI", 12F);
-            TotalCostLabel.Location = new Point(56, 403);
+            TotalCostLabel.Location = new Point(375, 408);
             TotalCostLabel.Name = "TotalCostLabel";
-            TotalCostLabel.Size = new Size(271, 21);
+            TotalCostLabel.Size = new Size(100, 21);
             TotalCostLabel.TabIndex = 3;
-            TotalCostLabel.Text = "Totale kosten bakfiets en accessoire(s)";
+            TotalCostLabel.Text = "Totale kosten";
             // 
             // ButtonCalculateCost
             // 
             ButtonCalculateCost.Enabled = false;
             ButtonCalculateCost.Font = new Font("Segoe UI", 12F);
-            ButtonCalculateCost.Location = new Point(226, 333);
+            ButtonCalculateCost.Location = new Point(365, 341);
             ButtonCalculateCost.Name = "ButtonCalculateCost";
             ButtonCalculateCost.Size = new Size(190, 43);
             ButtonCalculateCost.TabIndex = 4;
             ButtonCalculateCost.Text = "Bereken totale kosten";
             ButtonCalculateCost.UseVisualStyleBackColor = true;
-            ButtonCalculateCost.Click += ButtonCalculateCost_Click;
+            ButtonCalculateCost.Click += ButtonCalculateTotalCost_Click;
             // 
             // AccessoiresList
             // 
@@ -92,7 +91,7 @@
             AccessoiresList.Font = new Font("Segoe UI", 12F);
             AccessoiresList.FormattingEnabled = true;
             AccessoiresList.Items.AddRange(new object[] { "Telefoonhouder € 5", "Helm € 10", "Regenhoes € 15", "Babystoel € 20" });
-            AccessoiresList.Location = new Point(56, 139);
+            AccessoiresList.Location = new Point(56, 151);
             AccessoiresList.Name = "AccessoiresList";
             AccessoiresList.Size = new Size(190, 100);
             AccessoiresList.TabIndex = 3;
@@ -104,7 +103,7 @@
             ChoiceOfBikes.Font = new Font("Segoe UI", 12F);
             ChoiceOfBikes.FormattingEnabled = true;
             ChoiceOfBikes.Items.AddRange(new object[] { "Urban Arrow 4 pers. € 20", "Urban Arrow 6 pers. € 30", "Urban Arrow 4 pers. E-Bike € 40", "Urban Arrow 6 pers. E-Bike € 60" });
-            ChoiceOfBikes.Location = new Point(56, 59);
+            ChoiceOfBikes.Location = new Point(56, 64);
             ChoiceOfBikes.Name = "ChoiceOfBikes";
             ChoiceOfBikes.Size = new Size(252, 29);
             ChoiceOfBikes.TabIndex = 1;
@@ -164,7 +163,7 @@
             // 
             totalDaysLabel.AutoSize = true;
             totalDaysLabel.Font = new Font("Segoe UI", 12F);
-            totalDaysLabel.Location = new Point(375, 242);
+            totalDaysLabel.Location = new Point(375, 218);
             totalDaysLabel.Name = "totalDaysLabel";
             totalDaysLabel.Size = new Size(147, 21);
             totalDaysLabel.TabIndex = 11;
@@ -174,29 +173,17 @@
             // 
             CostsPerDayLabel.AutoSize = true;
             CostsPerDayLabel.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            CostsPerDayLabel.Location = new Point(56, 268);
+            CostsPerDayLabel.Location = new Point(56, 301);
             CostsPerDayLabel.Name = "CostsPerDayLabel";
-            CostsPerDayLabel.Size = new Size(164, 21);
+            CostsPerDayLabel.Size = new Size(177, 21);
             CostsPerDayLabel.TabIndex = 12;
-            CostsPerDayLabel.Text = "Kosten per dag is € 20";
-            // 
-            // ButtonConfirmDays
-            // 
-            ButtonConfirmDays.Font = new Font("Segoe UI", 12F);
-            ButtonConfirmDays.Location = new Point(542, 207);
-            ButtonConfirmDays.Name = "ButtonConfirmDays";
-            ButtonConfirmDays.Size = new Size(86, 32);
-            ButtonConfirmDays.TabIndex = 13;
-            ButtonConfirmDays.Text = "Bevestig";
-            ButtonConfirmDays.UseVisualStyleBackColor = true;
-            ButtonConfirmDays.Click += ButtonConfirmDays_Click;
+            CostsPerDayLabel.Text = "Kosten per dag zijn € 20";
             // 
             // BakfietsVerhuur
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(673, 479);
-            Controls.Add(ButtonConfirmDays);
             Controls.Add(CostsPerDayLabel);
             Controls.Add(totalDaysLabel);
             Controls.Add(ReturnDatePicker);
